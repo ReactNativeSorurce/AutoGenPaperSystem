@@ -1,0 +1,14 @@
+{
+  "name": "front-end",
+  "version": "1.0.0",
+  "description": "\"AutoGenPaperSystem's front end\"",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZSeaPeng/AutoGenPaperSystem.git"
+  },
+  "author": "wuhan",
+  "license": "MIT"
+}
