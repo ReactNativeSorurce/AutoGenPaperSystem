@@ -3,6 +3,7 @@ package cn.edu.zjnu.AutoGenPaperSystem.dao;
 import cn.edu.zjnu.AutoGenPaperSystem.model.Grade;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
 public interface GradeMapper {
     int deleteByPrimaryKey(Integer cradeId);
