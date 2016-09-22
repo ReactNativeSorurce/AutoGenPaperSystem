@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS `character`;
 
 CREATE TABLE `character` (                      //题目特点表
   `Charact_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,                     
+  `Charact_name` varchar(50) NOT NULL,                     
   PRIMARY KEY (`Charact_ID`)
 )  
 
@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `grade`;
   
 CREATE TABLE `grade` (                          //年级表
   `Crade_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(10) NOT NULL,
+  `Crade_name` varchar(10) NOT NULL,
   PRIMARY KEY (`Crade_ID`)
 )  
 
@@ -34,7 +34,7 @@ DROP TABLE IF EXISTS `knowledge`;
   
 CREATE TABLE `knowledge` (                         //知识点表
   `Knowledge_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
+  `Knowledge_name` varchar(100) NOT NULL,
   `Subject_ID` int(11) NOT NULL,                   //对应学科ID
   `Superior_ID` int(11) DEFAULT NULL,              //上级知识点ID
   PRIMARY KEY (`Knowledge_ID`)
@@ -65,7 +65,7 @@ DROP TABLE IF EXISTS `subject`;
   
 CREATE TABLE `subject` (                        //学科表
   `Subject_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) NOT NULL,
+  `Subject_name` varchar(20) NOT NULL,
   `Grade_ID` int(11) NOT NULL,                   //对应年级
   PRIMARY KEY (`Subject_ID`)
 )  
@@ -76,7 +76,7 @@ DROP TABLE IF EXISTS `type`;
   
 CREATE TABLE `type` (                       //题型表
   `Type_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) NOT NULL,
+  `Type_name` varchar(20) NOT NULL,
   `Subject_ID` int(11) NOT NULL,             //对应学科
   PRIMARY KEY (`Type_ID`)
 )  
