@@ -20,8 +20,7 @@
 	<mybatis:scan base-package="cn.edu.zjnu.AutoGenPaperSystem.dao"/>
 	<context:annotation-config/>
 	<context:property-placeholder location="classpath*:mysql.properties"/>
-	<context:component-scan base-package="cn.edu.zjnu.AutoGenPaperSystem.dao,
-											cn.edu.zjnu.AutoGenPaperSystem.service"/>
+	<context:component-scan base-package="cn.edu.zjnu.AutoGenPaperSystem.**"/>
 	<mvn:annotation-driven/>
 	<!--<mvn:resources mapping="/static/**" location="/static/"/>-->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -71,10 +70,6 @@
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	<!--上传文件bean配置-->
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<!--设置上传文件大小-->
-		<property name="maxInMemorySize" value="5000000"/>
-	</bean>
+
 
 </beans>
