@@ -1,8 +1,9 @@
-
+О╩©
 
 DROP TABLE IF EXISTS `character`;
 
-CREATE TABLE `character` (                      //лБд©ль╣Ц╠М
+
+CREATE TABLE `character` (                      //И╒≤Г⌡╝Г┴╧Г┌╧Х║╗
   `Charact_ID` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,                     
   PRIMARY KEY (`Charact_ID`)
@@ -12,17 +13,17 @@ CREATE TABLE `character` (                      //лБд©ль╣Ц╠М
 DROP TABLE IF EXISTS `difficulty`;
   
   
-CREATE TABLE `difficulty` (                          //дя╤хо╣йЩ╠М
+CREATE TABLE `difficulty` (                          //И ╬Е╨╕ГЁ╩Ф∙╟Х║╗
   `Difficulty_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Uplimit` double NOT NULL,                         //дя╤хиооч
-  `Lowlimit` double NOT NULL,                       //дя╤хобоч
+  `Uplimit` double NOT NULL,                         //И ╬Е╨╕Д╦┼И≥░
+  `Lowlimit` double NOT NULL,                       //И ╬Е╨╕Д╦▀И≥░
   PRIMARY KEY (`Difficulty_ID`)
 )  
 
 DROP TABLE IF EXISTS `grade`;                   
   
   
-CREATE TABLE `grade` (                          //дЙ╪╤╠М
+CREATE TABLE `grade` (                          //Е╧╢Г╨╖Х║╗
   `Crade_ID` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(10) NOT NULL,
   PRIMARY KEY (`Crade_ID`)
@@ -31,11 +32,11 @@ CREATE TABLE `grade` (                          //дЙ╪╤╠М
 DROP TABLE IF EXISTS `knowledge`;
   
   
-CREATE TABLE `knowledge` (                         //ж╙й╤╣Ц╠М
+CREATE TABLE `knowledge` (                         //Г÷╔Х╞├Г┌╧Х║╗
   `Knowledge_ID` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
-  `Subject_ID` int(11) NOT NULL,                   //╤тс╕я╖©фID
-  `Superior_ID` int(11) DEFAULT NULL,              //ио╪╤ж╙й╤╣ЦID
+  `Subject_ID` int(11) NOT NULL,                   //Е╞╧Е╨■Е╜╕Г╖▒ID
+  `Superior_ID` int(11) DEFAULT NULL,              //Д╦┼Г╨╖Г÷╔Х╞├Г┌╧ID
   PRIMARY KEY (`Knowledge_ID`)
 )  
 
@@ -43,18 +44,18 @@ CREATE TABLE `knowledge` (                         //ж╙й╤╣Ц╠М
 DROP TABLE IF EXISTS `questions`;
   
   
-CREATE TABLE `questions` (                        //лБд©╠М
+CREATE TABLE `questions` (                        //И╒≤Г⌡╝Х║╗
   `Questions_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Content` varchar(200) NOT NULL,                 //лБд©дзхщ
-  `Subject_ID` int(11) NOT NULL,                   //╤тс╕я╖©фID
-  `Knowledge_ID1` int(11) DEFAULT NULL,            //╤тс╕ж╙й╤╣Ц1
-  `Knowledge_ID2` int(11) DEFAULT NULL,            //╤тс╕ж╙й╤╣Ц2
-  `Knowledge_ID3` int(11) DEFAULT NULL,            //╤тс╕ж╙й╤╣Ц3
-  `Knowledge_ID4` int(11) DEFAULT NULL,            //╤тс╕ж╙й╤╣Ц4
-  `Type_ID` int(11) NOT NULL,                      //╤тс╕лБпм
-  `Difficulty_ID` int(11) NOT NULL,                //╤тс╕дя╤х
-  `Charact_ID` int(11) NOT NULL,                   //╤тс╕лБд©ль╣Ц
-  `Isdelete` tinyint(1) NOT NULL DEFAULT '0',      //в╢л╛
+  `Content` varchar(200) NOT NULL,                 //И╒≤Г⌡╝Е├┘Е╝╧
+  `Subject_ID` int(11) NOT NULL,                   //Е╞╧Е╨■Е╜╕Г╖▒ID
+  `Knowledge_ID1` int(11) DEFAULT NULL,            //Е╞╧Е╨■Г÷╔Х╞├Г┌╧1
+  `Knowledge_ID2` int(11) DEFAULT NULL,            //Е╞╧Е╨■Г÷╔Х╞├Г┌╧2
+  `Knowledge_ID3` int(11) DEFAULT NULL,            //Е╞╧Е╨■Г÷╔Х╞├Г┌╧3
+  `Knowledge_ID4` int(11) DEFAULT NULL,            //Е╞╧Е╨■Г÷╔Х╞├Г┌╧4
+  `Type_ID` int(11) NOT NULL,                      //Е╞╧Е╨■И╒≤Е·▀
+  `Difficulty_ID` int(11) NOT NULL,                //Е╞╧Е╨■И ╬Е╨╕
+  `Charact_ID` int(11) NOT NULL,                   //Е╞╧Е╨■И╒≤Г⌡╝Г┴╧Г┌╧
+  `Isdelete` tinyint(1) NOT NULL DEFAULT '0',      //Г┼╤Ф─│
   PRIMARY KEY (`Questions_ID`)
 )  
 
@@ -62,10 +63,10 @@ CREATE TABLE `questions` (                        //лБд©╠М
 DROP TABLE IF EXISTS `subject`;
   
   
-CREATE TABLE `subject` (                        //я╖©ф╠М
+CREATE TABLE `subject` (                        //Е╜╕Г╖▒Х║╗
   `Subject_ID` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
-  `Grade_ID` int(11) NOT NULL,                   //╤тс╕дЙ╪╤
+  `Grade_ID` int(11) NOT NULL,                   //Е╞╧Е╨■Е╧╢Г╨╖
   PRIMARY KEY (`Subject_ID`)
 )  
 
@@ -73,9 +74,9 @@ CREATE TABLE `subject` (                        //я╖©ф╠М
 DROP TABLE IF EXISTS `type`;
   
   
-CREATE TABLE `type` (                       //лБпм╠М
+CREATE TABLE `type` (                       //И╒≤Е·▀Х║╗
   `Type_ID` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
-  `Subject_ID` int(11) NOT NULL,             //╤тс╕я╖©ф
+  `Subject_ID` int(11) NOT NULL,             //Е╞╧Е╨■Е╜╕Г╖▒
   PRIMARY KEY (`Type_ID`)
 )  
