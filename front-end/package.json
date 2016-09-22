@@ -1,9 +1,13 @@
 {
   "name": "front-end",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "\"AutoGenPaperSystem's front end\"",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
+    "build": "npm run clean && npm run build:webpack",
+    "test": "NODE_ENV=production mocha './tests/**/*.spec.js' --compilers js:babel-core/register",
+    "clean": "rimraf dist",
+    "start": "node devServer.js"
   },
   "repository": {
     "type": "git",
@@ -23,12 +27,19 @@
   },
   "dependencies": {
     "babel-core": "^6.14.0",
+    "babel-eslint": "^6.1.2",
     "babel-polyfill": "^6.13.0",
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-plugin-transform-object-rest-spread": "^6.6.5",
+    "babel-plugin-transform-react-display-name": "^6.5.0",
+    "express": "^4.14.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
     "react-router-redux": "^4.0.5",
+    "react-transform-catch-errors": "^1.0.2",
+    "react-transform-hmr": "^1.0.4",
     "redux": "^3.6.0"
   }
 }
