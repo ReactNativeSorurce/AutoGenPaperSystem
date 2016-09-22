@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.zjnu.AutoGenPaperSystem.dao.GradeMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.zjnu.AutoGenPaperSystem.model.Grade" >
+    <constructor >
+      <idArg column="Crade_ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="Crade_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Crade_ID, Crade_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from grade
+    where Crade_ID = #{cradeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from grade
+    where Crade_ID = #{cradeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.edu.zjnu.AutoGenPaperSystem.model.Grade" >
+    insert into grade (Crade_ID, Crade_name)
+    values (#{cradeId,jdbcType=INTEGER}, #{cradeName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.zjnu.AutoGenPaperSystem.model.Grade" >
+    insert into grade
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cradeId != null" >
+        Crade_ID,
+      </if>
+      <if test="cradeName != null" >
+        Crade_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cradeId != null" >
+        #{cradeId,jdbcType=INTEGER},
+      </if>
+      <if test="cradeName != null" >
+        #{cradeName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.zjnu.AutoGenPaperSystem.model.Grade" >
+    update grade
+    <set >
+      <if test="cradeName != null" >
+        Crade_name = #{cradeName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Crade_ID = #{cradeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.zjnu.AutoGenPaperSystem.model.Grade" >
+    update grade
+    set Crade_name = #{cradeName,jdbcType=VARCHAR}
+    where Crade_ID = #{cradeId,jdbcType=INTEGER}
+  </update>
+</mapper>
