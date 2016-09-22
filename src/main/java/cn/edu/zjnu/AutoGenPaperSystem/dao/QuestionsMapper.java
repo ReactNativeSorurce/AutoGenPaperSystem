@@ -1,7 +1,9 @@
 package cn.edu.zjnu.AutoGenPaperSystem.dao;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.Questions;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface QuestionsMapper {
     int deleteByPrimaryKey(Integer questionsId);
 

@@ -1,7 +1,9 @@
 package cn.edu.zjnu.AutoGenPaperSystem.dao;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.Knowledge;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface KnowledgeMapper {
     int deleteByPrimaryKey(Integer knowledgeId);
 

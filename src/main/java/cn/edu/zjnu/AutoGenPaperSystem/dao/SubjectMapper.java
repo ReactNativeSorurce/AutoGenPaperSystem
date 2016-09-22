@@ -1,7 +1,9 @@
 package cn.edu.zjnu.AutoGenPaperSystem.dao;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.Subject;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface SubjectMapper {
     int deleteByPrimaryKey(Integer subjectId);
 

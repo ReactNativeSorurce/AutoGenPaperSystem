@@ -1,7 +1,9 @@
 package cn.edu.zjnu.AutoGenPaperSystem.dao;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.Difficulty;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface DifficultyMapper {
     int deleteByPrimaryKey(Integer difficultyId);
 
