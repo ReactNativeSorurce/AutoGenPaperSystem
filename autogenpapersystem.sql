@@ -50,8 +50,9 @@ CREATE TABLE `difficulty` (
   `Difficulty_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Uplimit` double NOT NULL,
   `Lowlimit` double NOT NULL,
+  `Describe` varchar(10) NOT NULL,
   PRIMARY KEY (`Difficulty_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,6 +61,7 @@ CREATE TABLE `difficulty` (
 
 LOCK TABLES `difficulty` WRITE;
 /*!40000 ALTER TABLE `difficulty` DISABLE KEYS */;
+INSERT INTO `difficulty` VALUES (1,1,0.86,'容易');
 /*!40000 ALTER TABLE `difficulty` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,4 +205,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-23 15:15:08
+-- Dump completed on 2016-09-23 16:02:21
