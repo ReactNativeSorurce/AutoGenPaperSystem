@@ -1,10 +1,11 @@
-package cn.edu.zjnu.AutoGenPaperSystem.dao;
+package cn.edu.zjnu.AutoGenPaperSystem.service;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.Difficulty;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public interface DifficultyMapper {
+/**
+ * Created by zseapeng on 2016/9/22.
+ */
+public interface DifficultyService {
     int deleteByPrimaryKey(Integer difficultyId);
 
     int insert(Difficulty record);

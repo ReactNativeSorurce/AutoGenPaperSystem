@@ -1,11 +1,11 @@
-package cn.edu.zjnu.AutoGenPaperSystem.dao;
+package cn.edu.zjnu.AutoGenPaperSystem.service;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.Grade;
-import org.springframework.stereotype.Repository;
 
-
-@Repository
-public interface GradeMapper {
+/**
+ * Created by zseapeng on 2016/9/22.
+ */
+public interface GradeService {
     int deleteByPrimaryKey(Integer cradeId);
 
     int insert(Grade record);

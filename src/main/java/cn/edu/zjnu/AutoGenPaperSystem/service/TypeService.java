@@ -1,10 +1,11 @@
-package cn.edu.zjnu.AutoGenPaperSystem.dao;
+package cn.edu.zjnu.AutoGenPaperSystem.service;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.Type;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public interface TypeMapper {
+/**
+ * Created by zseapeng on 2016/9/22.
+ */
+public interface TypeService {
     int deleteByPrimaryKey(Integer typeId);
 
     int insert(Type record);

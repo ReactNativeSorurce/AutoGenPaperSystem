@@ -1,10 +1,9 @@
-package cn.edu.zjnu.AutoGenPaperSystem.dao;
+package cn.edu.zjnu.AutoGenPaperSystem.service;
 
-import cn.edu.zjnu.AutoGenPaperSystem.model.Character;
-import org.springframework.stereotype.Repository;
-
-@Repository
-public interface CharacterMapper {
+/**
+ * Created by zseapeng on 2016/9/22.
+ */
+public interface CharacterService {
     int deleteByPrimaryKey(Integer charactId);
 
     int insert(Character record);

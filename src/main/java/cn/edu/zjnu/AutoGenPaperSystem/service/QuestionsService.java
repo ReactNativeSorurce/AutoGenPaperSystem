@@ -1,10 +1,11 @@
-package cn.edu.zjnu.AutoGenPaperSystem.dao;
+package cn.edu.zjnu.AutoGenPaperSystem.service;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.Questions;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public interface QuestionsMapper {
+/**
+ * Created by zseapeng on 2016/9/22.
+ */
+public interface QuestionsService {
     int deleteByPrimaryKey(Integer questionsId);
 
     int insert(Questions record);
