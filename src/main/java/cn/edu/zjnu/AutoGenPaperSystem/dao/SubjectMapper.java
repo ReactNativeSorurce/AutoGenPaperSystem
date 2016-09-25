@@ -15,13 +15,14 @@ public interface SubjectMapper {
 
     Subject selectByPrimaryKey(Integer subjectId);
 
-    Subject selectBysubjectname(String subjectname);
+    //Subject selectBysubjectname(String subjectname);
 
-    List<Subject> selectAllsubject();
 
     int updateByPrimaryKeySelective(Subject record);
 
     int updateByPrimaryKey(Subject record);
 
     List<Subject> selectAllSubject();
+
+    List<Subject> selectByGradeId(int id);
 }

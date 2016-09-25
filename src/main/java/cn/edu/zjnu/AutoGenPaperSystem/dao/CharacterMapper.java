@@ -16,4 +16,6 @@ public interface CharacterMapper {
     int updateByPrimaryKeySelective(Character record);
 
     int updateByPrimaryKey(Character record);
+
+
 }
