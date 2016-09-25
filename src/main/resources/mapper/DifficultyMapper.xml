@@ -6,6 +6,7 @@
       <idArg column="Difficulty_ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="Uplimit" jdbcType="DOUBLE" javaType="java.lang.Double" />
       <arg column="Lowlimit" jdbcType="DOUBLE" javaType="java.lang.Double" />
+      <arg column="describe" jdbcType="VARCHAR" javaType="java.lang.String"/>
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
