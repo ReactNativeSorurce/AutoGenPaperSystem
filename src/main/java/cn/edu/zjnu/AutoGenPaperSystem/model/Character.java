@@ -4,7 +4,7 @@ public class Character {
     private Integer charactId;
 
     private String charactName;
-
+    
     public Character(Integer charactId, String charactName) {
         this.charactId = charactId;
         this.charactName = charactName;
