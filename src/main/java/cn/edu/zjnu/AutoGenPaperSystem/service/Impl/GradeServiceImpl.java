@@ -6,6 +6,7 @@ import cn.edu.zjnu.AutoGenPaperSystem.service.GradeService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by zseapeng on 2016/9/22.
@@ -39,5 +40,9 @@ public class GradeServiceImpl implements GradeService {
 
     public int updateByPrimaryKey(Grade record) {
         return 0;
+    }
+
+    public List<Grade> selectAllGrade() {
+        return gradeMapper.selectAllGrade();
     }
 }

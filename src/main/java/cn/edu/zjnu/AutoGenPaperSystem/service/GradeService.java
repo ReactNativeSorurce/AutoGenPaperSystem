@@ -2,6 +2,8 @@ package cn.edu.zjnu.AutoGenPaperSystem.service;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.Grade;
 
+import java.util.List;
+
 /**
  * Created by zseapeng on 2016/9/22.
  */
@@ -17,4 +19,6 @@ public interface GradeService {
     int updateByPrimaryKeySelective(Grade record);
 
     int updateByPrimaryKey(Grade record);
+
+    List<Grade> selectAllGrade();
 }

@@ -3,58 +3,62 @@
 <mapper namespace="cn.edu.zjnu.AutoGenPaperSystem.dao.GradeMapper" >
   <resultMap id="BaseResultMap" type="cn.edu.zjnu.AutoGenPaperSystem.model.Grade" >
     <constructor >
-      <idArg column="Crade_ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="Crade_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <idArg column="Grade_ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="Grade_name" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    Crade_ID, Crade_name
+    Grade_ID, Grade_name
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from grade
-    where Crade_ID = #{cradeId,jdbcType=INTEGER}
+    where Grade_ID = #{gradeId,jdbcType=INTEGER}
   </select>
+  <select id="selectAllGrade" resultMap="BaseResultMap">
+    SELECT * FROM grade
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from grade
-    where Crade_ID = #{cradeId,jdbcType=INTEGER}
+    where Grade_ID = #{gradeId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="cn.edu.zjnu.AutoGenPaperSystem.model.Grade" >
-    insert into grade (Crade_ID, Crade_name)
-    values (#{cradeId,jdbcType=INTEGER}, #{cradeName,jdbcType=VARCHAR})
+    insert into grade (Grade_ID, Grade_name)
+    values (#{gradeId,jdbcType=INTEGER}, #{gradeName,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.zjnu.AutoGenPaperSystem.model.Grade" >
     insert into grade
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="cradeId != null" >
-        Crade_ID,
+      <if test="gradeId != null" >
+        Grade_ID,
       </if>
-      <if test="cradeName != null" >
-        Crade_name,
+      <if test="gradeName != null" >
+        Grade_name,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="cradeId != null" >
-        #{cradeId,jdbcType=INTEGER},
+      <if test="gradeId != null" >
+        #{gradeId,jdbcType=INTEGER},
       </if>
-      <if test="cradeName != null" >
-        #{cradeName,jdbcType=VARCHAR},
+      <if test="gradeName != null" >
+        #{gradeName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="cn.edu.zjnu.AutoGenPaperSystem.model.Grade" >
     update grade
     <set >
-      <if test="cradeName != null" >
-        Crade_name = #{cradeName,jdbcType=VARCHAR},
+      <if test="gradeName != null" >
+        Grade_name = #{gradeName,jdbcType=VARCHAR},
       </if>
     </set>
-    where Crade_ID = #{cradeId,jdbcType=INTEGER}
+    where Grade_ID = #{gradeId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.edu.zjnu.AutoGenPaperSystem.model.Grade" >
     update grade
-    set Crade_name = #{cradeName,jdbcType=VARCHAR}
-    where Crade_ID = #{cradeId,jdbcType=INTEGER}
+    set Grade_name = #{gradeName,jdbcType=VARCHAR}
+    where Grade_ID = #{gradeId,jdbcType=INTEGER}
   </update>
 </mapper>

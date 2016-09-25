@@ -3,6 +3,8 @@ package cn.edu.zjnu.AutoGenPaperSystem.dao;
 import cn.edu.zjnu.AutoGenPaperSystem.model.Subject;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface SubjectMapper {
     int deleteByPrimaryKey(Integer subjectId);
@@ -16,4 +18,6 @@ public interface SubjectMapper {
     int updateByPrimaryKeySelective(Subject record);
 
     int updateByPrimaryKey(Subject record);
+
+    List<Subject> selectAllSubject();
 }

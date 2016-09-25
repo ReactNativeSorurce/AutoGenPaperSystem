@@ -12,11 +12,19 @@
     Subject_ID, Subject_name, Grade_ID
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from subject
     where Subject_ID = #{subjectId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectAllSubject" resultMap="BaseResultMap">
+    select
+    *
+    from subject
+  </select>
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from subject
     where Subject_ID = #{subjectId,jdbcType=INTEGER}

@@ -7,6 +7,7 @@ public class Subject {
 
     private Integer gradeId;
 
+
     public Subject(Integer subjectId, String subjectName, Integer gradeId) {
         this.subjectId = subjectId;
         this.subjectName = subjectName;
@@ -39,5 +40,15 @@ public class Subject {
 
     public void setGradeId(Integer gradeId) {
         this.gradeId = gradeId;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Subject{" +
+                "subjectId=" + subjectId +
+                ", subjectName='" + subjectName + '\'' +
+                ", gradeId=" + gradeId +
+                '}';
     }
 }
