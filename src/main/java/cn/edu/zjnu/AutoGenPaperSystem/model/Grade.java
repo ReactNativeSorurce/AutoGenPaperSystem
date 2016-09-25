@@ -1,32 +1,39 @@
 package cn.edu.zjnu.AutoGenPaperSystem.model;
 
 public class Grade {
-    private Integer cradeId;
+    private Integer gradeId;
 
-    private String cradeName;
-
-    public Grade(Integer cradeId, String cradeName) {
-        this.cradeId = cradeId;
-        this.cradeName = cradeName;
-    }
+    private String gradeName;
 
     public Grade() {
-        super();
     }
 
-    public Integer getCradeId() {
-        return cradeId;
+    public Grade(Integer gradeId, String gradeName) {
+        this.gradeId = gradeId;
+        this.gradeName = gradeName;
     }
 
-    public void setCradeId(Integer cradeId) {
-        this.cradeId = cradeId;
+    @Override
+    public String toString() {
+        return "Grade{" +
+                "gradeId=" + gradeId +
+                ", gradeName='" + gradeName + '\'' +
+                '}';
     }
 
-    public String getCradeName() {
-        return cradeName;
+    public Integer getGradeId() {
+        return gradeId;
     }
 
-    public void setCradeName(String cradeName) {
-        this.cradeName = cradeName == null ? null : cradeName.trim();
+    public void setGradeId(Integer gradeId) {
+        this.gradeId = gradeId;
+    }
+
+    public String getGradeName() {
+        return gradeName;
+    }
+
+    public void setGradeName(String gradeName) {
+        this.gradeName = gradeName;
     }
 }
