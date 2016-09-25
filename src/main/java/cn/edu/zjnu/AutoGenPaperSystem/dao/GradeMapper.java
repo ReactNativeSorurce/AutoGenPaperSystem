@@ -18,4 +18,7 @@ public interface GradeMapper {
     int updateByPrimaryKey(Grade record);
 
     List<Grade> selectAllGrade();
+
+
+    //
 }
