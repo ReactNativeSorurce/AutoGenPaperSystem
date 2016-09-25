@@ -17,6 +17,19 @@
     from subject
     where Subject_ID = #{subjectId,jdbcType=INTEGER}
   </select>
+  <select id="selectBysubjectname" resultMap="BaseResultMap" parameterType="java.lang.String">
+    SELECT
+    *
+    from subject
+    WHERE Subject_name= #{subjectname}
+  </select>
+
+  <select id="selectAllsubject" resultMap="BaseResultMap">
+    SELECT
+    *
+    FROM subject
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from subject
     where Subject_ID = #{subjectId,jdbcType=INTEGER}
