@@ -16,6 +16,7 @@
     from grade
     where Grade_ID = #{gradeId,jdbcType=INTEGER}
   </select>
+
   <select id="selectAllGrade" resultMap="BaseResultMap">
     SELECT * FROM grade
   </select>

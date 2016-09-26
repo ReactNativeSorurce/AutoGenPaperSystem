@@ -4,6 +4,8 @@ import cn.edu.zjnu.AutoGenPaperSystem.model.Difficulty;
 import cn.edu.zjnu.AutoGenPaperSystem.service.DifficultyService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by zseapeng on 2016/9/22.
  */
@@ -31,5 +33,9 @@ public class DifficultyServiceImpl implements DifficultyService {
 
     public int updateByPrimaryKey(Difficulty record) {
         return 0;
+    }
+
+    public List<Difficulty> selectAllDifficult() {
+        return null;
     }
 }
