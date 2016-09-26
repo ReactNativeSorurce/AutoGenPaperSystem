@@ -19,6 +19,4 @@ public interface GradeMapper {
 
     List<Grade> selectAllGrade();
 
-
-    //
 }

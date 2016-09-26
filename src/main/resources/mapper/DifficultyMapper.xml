@@ -18,6 +18,13 @@
     from difficulty
     where Difficulty_ID = #{difficultyId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectAllDifficult" resultMap="BaseResultMap">
+    SELECT
+    *
+    FROM difficulty
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from difficulty
     where Difficulty_ID = #{difficultyId,jdbcType=INTEGER}
