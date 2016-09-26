@@ -1,7 +1,10 @@
 package cn.edu.zjnu.AutoGenPaperSystem.dao;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.Knowledge;
+import cn.edu.zjnu.AutoGenPaperSystem.model.Subject;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface KnowledgeMapper {
@@ -16,4 +19,6 @@ public interface KnowledgeMapper {
     int updateByPrimaryKeySelective(Knowledge record);
 
     int updateByPrimaryKey(Knowledge record);
+
+    List<Knowledge> selectKnowledgeBySubjectId(Integer subjectId);
 }

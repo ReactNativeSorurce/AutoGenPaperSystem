@@ -18,6 +18,14 @@
     from knowledge
     where Knowledge_ID = #{knowledgeId,jdbcType=INTEGER}
   </select>
+  
+  <select id="selectKnowledgeBySubjectId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    SELECT
+    *
+    FROM knowledge
+    WHERE Subject_ID=#{subjectId}
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from knowledge
     where Knowledge_ID = #{knowledgeId,jdbcType=INTEGER}

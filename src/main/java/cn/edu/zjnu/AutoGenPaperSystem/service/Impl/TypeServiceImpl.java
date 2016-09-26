@@ -4,6 +4,8 @@ import cn.edu.zjnu.AutoGenPaperSystem.model.Types;
 import cn.edu.zjnu.AutoGenPaperSystem.service.TypeService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by zseapeng on 2016/9/22.
  */
@@ -31,5 +33,13 @@ public class TypeServiceImpl implements TypeService {
 
     public int updateByPrimaryKey(Types record) {
         return 0;
+    }
+
+    public List<Types> selectTypesBySubjectId(Integer subjectId) {
+        return null;
+    }
+
+    public List<Types> selectTypeBySubjectId(Integer subjectId) {
+        return null;
     }
 }

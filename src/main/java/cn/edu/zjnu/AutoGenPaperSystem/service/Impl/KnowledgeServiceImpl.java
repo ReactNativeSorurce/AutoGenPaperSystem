@@ -4,6 +4,8 @@ import cn.edu.zjnu.AutoGenPaperSystem.model.Knowledge;
 import cn.edu.zjnu.AutoGenPaperSystem.service.KnowledgeService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by zseapeng on 2016/9/22.
  */
@@ -31,5 +33,9 @@ public class KnowledgeServiceImpl implements KnowledgeService {
 
     public int updateByPrimaryKey(Knowledge record) {
         return 0;
+    }
+
+    public List<Knowledge> selectKnowledgeBySubjectId(Integer subjectId) {
+        return null;
     }
 }

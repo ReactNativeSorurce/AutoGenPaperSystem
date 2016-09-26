@@ -2,6 +2,8 @@ package cn.edu.zjnu.AutoGenPaperSystem.service;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.Types;
 
+import java.util.List;
+
 /**
  * Created by zseapeng on 2016/9/22.
  */
@@ -17,4 +19,6 @@ public interface TypeService {
     int updateByPrimaryKeySelective(Types record);
 
     int updateByPrimaryKey(Types record);
+
+    List<Types> selectTypesBySubjectId(Integer subjectId);
 }

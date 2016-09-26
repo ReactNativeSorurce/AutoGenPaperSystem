@@ -16,6 +16,13 @@
     from charaction
     where Charact_ID = #{charactId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectAllCharat" resultMap="BaseResultMap">
+    SELECT
+    *
+    FROM charaction
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from charaction
     where Charact_ID = #{charactId,jdbcType=INTEGER}

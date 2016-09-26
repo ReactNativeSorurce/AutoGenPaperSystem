@@ -2,6 +2,8 @@ package cn.edu.zjnu.AutoGenPaperSystem.dao;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.Charaction;
 
+import java.util.List;
+
 public interface CharactionMapper {
     int deleteByPrimaryKey(Integer charactId);
 
@@ -14,4 +16,6 @@ public interface CharactionMapper {
     int updateByPrimaryKeySelective(Charaction record);
 
     int updateByPrimaryKey(Charaction record);
+
+    List<Charaction> selectAllCharat();
 }
