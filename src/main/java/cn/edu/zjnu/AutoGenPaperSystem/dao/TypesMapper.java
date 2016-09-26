@@ -1,11 +1,8 @@
-package cn.edu.zjnu.AutoGenPaperSystem.service;
+package cn.edu.zjnu.AutoGenPaperSystem.dao;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.Types;
 
-/**
- * Created by zseapeng on 2016/9/22.
- */
-public interface TypeService {
+public interface TypesMapper {
     int deleteByPrimaryKey(Integer typeId);
 
     int insert(Types record);

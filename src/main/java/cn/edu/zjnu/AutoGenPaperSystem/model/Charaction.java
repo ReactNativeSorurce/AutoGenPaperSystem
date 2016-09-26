@@ -1,16 +1,16 @@
 package cn.edu.zjnu.AutoGenPaperSystem.model;
 
-public class Character {
+public class Charaction {
     private Integer charactId;
 
     private String charactName;
 
-    public Character(Integer charactId, String charactName) {
+    public Charaction(Integer charactId, String charactName) {
         this.charactId = charactId;
         this.charactName = charactName;
     }
 
-    public Character() {
+    public Charaction() {
         super();
     }
 

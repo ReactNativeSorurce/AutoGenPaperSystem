@@ -1,6 +1,6 @@
 package cn.edu.zjnu.AutoGenPaperSystem.service.Impl;
 
-import cn.edu.zjnu.AutoGenPaperSystem.model.Type;
+import cn.edu.zjnu.AutoGenPaperSystem.model.Types;
 import cn.edu.zjnu.AutoGenPaperSystem.service.TypeService;
 import org.springframework.stereotype.Service;
 
@@ -13,23 +13,23 @@ public class TypeServiceImpl implements TypeService {
         return 0;
     }
 
-    public int insert(Type record) {
+    public int insert(Types record) {
         return 0;
     }
 
-    public int insertSelective(Type record) {
+    public int insertSelective(Types record) {
         return 0;
     }
 
-    public Type selectByPrimaryKey(Integer typeId) {
+    public Types selectByPrimaryKey(Integer typeId) {
         return null;
     }
 
-    public int updateByPrimaryKeySelective(Type record) {
+    public int updateByPrimaryKeySelective(Types record) {
         return 0;
     }
 
-    public int updateByPrimaryKey(Type record) {
+    public int updateByPrimaryKey(Types record) {
         return 0;
     }
 }
