@@ -2,18 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.edu.zjnu.AutoGenPaperSystem.dao.QuestionsMapper" >
   <resultMap id="BaseResultMap" type="cn.edu.zjnu.AutoGenPaperSystem.model.Questions" >
+  <constructor >
+    <idArg column="Questions_ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    <arg column="Content" jdbcType="VARCHAR" javaType="java.lang.String" />
+    <arg column="Subject_ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    <arg column="Knowledge_ID1" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    <arg column="Knowledge_ID2" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    <arg column="Knowledge_ID3" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    <arg column="Knowledge_ID4" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    <arg column="Type_ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    <arg column="Difficulty_ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    <arg column="Charact_ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    <arg column="Isdelete" jdbcType="BIT" javaType="java.lang.Boolean" />
+    <arg column="Answer" jdbcType="VARCHAR" javaType="java.lang.String"/>
+  </constructor>
+</resultMap>
+
+
+
+
+  <resultMap id="QuestionMAp" type="cn.edu.zjnu.AutoGenPaperSystem.model.Questions" >
     <constructor >
       <idArg column="Questions_ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="Content" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="Subject_ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="Knowledge_ID1" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="Knowledge_ID2" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="Knowledge_ID3" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="Knowledge_ID4" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="Type_ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="Difficulty_ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="Charact_ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="Isdelete" jdbcType="BIT" javaType="java.lang.Boolean" />
       <arg column="Answer" jdbcType="VARCHAR" javaType="java.lang.String"/>
     </constructor>
   </resultMap>
@@ -27,9 +38,9 @@
     from questions
     where Questions_ID = #{questionsId,jdbcType=INTEGER}
   </select>
-  <select id="selectBySearchAll" resultType="cn.edu.zjnu.AutoGenPaperSystem.model.Questions" parameterType="cn.edu.zjnu.AutoGenPaperSystem.model.SearchAll">
+  <select id="selectBySearchAll" resultMap="QuestionMAp" parameterType="cn.edu.zjnu.AutoGenPaperSystem.model.SearchAll">
     SELECT
-    Content,Answer
+    Questions_ID,Content,Answer
     FROM questions
     <where>
       <if test="sub_id != 0">

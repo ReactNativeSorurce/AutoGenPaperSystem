@@ -26,6 +26,12 @@ public class Questions {
     private String Answer;
 
 
+    public Questions(Integer questionsId, String content, String answer) {
+        this.questionsId = questionsId;
+        this.content = content;
+        Answer = answer;
+    }
+
     public Questions(Integer questionsId, String content, Integer subjectId, Integer knowledgeId1, Integer knowledgeId2, Integer knowledgeId3, Integer knowledgeId4, Integer typeId, Integer difficultyId, Integer charactId, Boolean isdelete, String answer) {
         this.questionsId = questionsId;
         this.content = content;
@@ -59,6 +65,10 @@ public class Questions {
                 '}';
     }
 
+    public Questions() {
+        super();
+    }
+
     public String getAnswer() {
         return Answer;
     }
@@ -67,9 +77,6 @@ public class Questions {
         Answer = answer;
     }
 
-    public Questions() {
-        super();
-    }
 
     public Integer getQuestionsId() {
         return questionsId;
