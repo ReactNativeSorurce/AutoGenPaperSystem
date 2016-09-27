@@ -27,12 +27,31 @@
     from questions
     where Questions_ID = #{questionsId,jdbcType=INTEGER}
   </select>
-	<select id="selectBySearchAll" resultType="cn.edu.zjnu.AutoGenPaperSystem.model.Questions" parameterType="cn.edu.zjnu.AutoGenPaperSystem.model.SearchAll">
-
-
-
-    </select>
-	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <select id="selectBySearchAll" resultType="cn.edu.zjnu.AutoGenPaperSystem.model.Questions" parameterType="cn.edu.zjnu.AutoGenPaperSystem.model.SearchAll">
+    SELECT
+    Content,Answer
+    FROM questions
+    <where>
+      <if test="sub_id != 0">
+        Subject_ID=#{sub_id}
+      </if>
+      <if test="char_id != 0">
+        AND Charact_ID=#{char_id}
+      </if>
+      <if test="types_id != 0">
+        AND Type_ID=#{types_id}
+      </if>
+      <trim prefix="AND (" suffix=")" prefixOverrides="AND | OR">
+        <if test="know_id != 0">
+          Knowledge_ID1 = #{know_id} OR Knowledge_ID2 = #{know_id} OR Knowledge_ID3 = #{know_id} OR Knowledge_ID4 = #{know_id}
+        </if>
+      </trim>
+      <if test="diff_id != 0">
+        AND Difficulty_ID=#{diff_id}
+      </if>
+    </where>
+   </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from questions
     where Questions_ID = #{questionsId,jdbcType=INTEGER}
   </delete>
