@@ -2,6 +2,7 @@ package cn.edu.zjnu.AutoGenPaperSystem.service.Impl;
 
 import cn.edu.zjnu.AutoGenPaperSystem.dao.SubjectMapper;
 import cn.edu.zjnu.AutoGenPaperSystem.model.Grade;
+import cn.edu.zjnu.AutoGenPaperSystem.model.SubJson;
 import cn.edu.zjnu.AutoGenPaperSystem.model.Subject;
 import cn.edu.zjnu.AutoGenPaperSystem.service.GradeService;
 import cn.edu.zjnu.AutoGenPaperSystem.service.SubjectService;
@@ -51,31 +52,60 @@ public class SubjectServiceImpl implements SubjectService {
         return 0;
     }
 
-    public Map<String, List> selectAllSubject() {
+    public Map selectAllSubject() {
+        Map<String, List> gradeMap = new HashMap<String, List>();
+        List<SubJson> subJsonList = new ArrayList<SubJson>();
         List<Grade> gradeList = gradeServiceImpl.selectAllGrade();
-        Map<String,List> gradeMap = new HashMap<String, List>();
-        for (Grade grade:gradeList){
-            try {
-                List<Map> mapList = new ArrayList<Map>();
-                String gradeName = PinyinHelper.convertToPinyinString(grade.getGradeName(),"", PinyinFormat.WITHOUT_TONE);
-                List<Subject> subjectList = subjectMapper.selectByGradeId(grade.getGradeId());
-                for (Subject s:subjectList){
-                    if (grade.getGradeId() == s.getGradeId()){
-                        Map<String,String> stringMap = new HashMap<String, String>();
-                        String url = "/"+PinyinHelper.convertToPinyinString(s.getSubjectName(),"",PinyinFormat.WITHOUT_TONE)+s.getGradeId();
-                        stringMap.put("url",url);
-                        stringMap.put("context",s.getSubjectName());
-                        mapList.add(stringMap);
+        for (Grade grade : gradeList) {
+            SubJson subJson = new SubJson();
+            subJson.setName(grade.getGradeName());
+            List<Map> mapList = new ArrayList<Map>();
+            List<Subject> subjectList = subjectMapper.selectByGradeId(grade.getGradeId());
+            for (Subject subject : subjectList) {
+                Map<String, String> subMap = new HashMap<String, String>();
+                if (subject.getGradeId() == grade.getGradeId()) {
+                    try {
+                        subMap.put("url", "/tiku/"+grade.getGradeId() + PinyinHelper.convertToPinyinString(subject.getSubjectName(), "", PinyinFormat.WITHOUT_TONE) + subject.getSubjectId() +
+                                "/point");
+                    } catch (PinyinException e) {
+                        e.printStackTrace();
                     }
+                    subMap.put("context", subject.getSubjectName());
+                    mapList.add(subMap);
                 }
-                gradeMap.put(gradeName,mapList);
-            } catch (PinyinException e) {
-                e.printStackTrace();
             }
+            subJson.setContextList(mapList);
+            subJsonList.add(subJson);
         }
-        //
-        System.out.println(gradeMap);
+        gradeMap.put("grade", subJsonList);
         return gradeMap;
+
+        //List<Grade> gradeList = gradeServiceImpl.selectAllGrade();
+        //Map<String,Map> BigGradeMap = new HashMap<String, Map>();
+        //Map<String,Object> gradeMap = null;
+        //for (Grade grade:gradeList){
+        //    try {
+        //        gradeMap = new HashMap<String, Object>();
+        //        List<Map> mapList = new ArrayList<Map>();
+        //        gradeMap.put("name",grade.getGradeName());
+        //        List<Subject> subjectList = subjectMapper.selectByGradeId(grade.getGradeId());
+        //        for (Subject s:subjectList){
+        //            if (grade.getGradeId() == s.getGradeId()){
+        //                Map<String,String> stringMap = new HashMap<String, String>();
+        //                String url = "/"+PinyinHelper.convertToPinyinString(s.getSubjectName(),"",PinyinFormat.WITHOUT_TONE)+s.getGradeId();
+        //                stringMap.put("url",url);
+        //                stringMap.put("context",s.getSubjectName());
+        //                mapList.add(stringMap);
+        //            }
+        //        }
+        //        gradeMap.put("gradecontext",mapList);
+        //        BigGradeMap.put("grade",gradeMap);
+        //    } catch (PinyinException e) {
+        //        e.printStackTrace();
+        //    }
+        //}
+        //System.out.println(BigGradeMap);
+        //return BigGradeMap;
     }
 
     public List<Subject> selectByGradeId(int id) {

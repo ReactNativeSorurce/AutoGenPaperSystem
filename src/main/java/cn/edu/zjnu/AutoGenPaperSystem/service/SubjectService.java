@@ -21,7 +21,7 @@ public interface SubjectService {
 
     int updateByPrimaryKey(Subject record);
 
-    Map<String, List> selectAllSubject();
+    Map selectAllSubject();
 
     List<Subject> selectByGradeId(int id);
 }

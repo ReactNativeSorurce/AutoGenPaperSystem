@@ -27,7 +27,12 @@
     from questions
     where Questions_ID = #{questionsId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+	<select id="selectBySearchAll" resultType="cn.edu.zjnu.AutoGenPaperSystem.model.Questions" parameterType="cn.edu.zjnu.AutoGenPaperSystem.model.SearchAll">
+
+
+
+    </select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from questions
     where Questions_ID = #{questionsId,jdbcType=INTEGER}
   </delete>

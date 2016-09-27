@@ -21,7 +21,7 @@ public class SubjectListContorller {
     private SubjectService subjectServiceImpl;
 
     @RequestMapping(method = RequestMethod.GET)
-    public Map getSubjectList(){
+    public Map getSubjectList() {
         return subjectServiceImpl.selectAllSubject();
     }
 
