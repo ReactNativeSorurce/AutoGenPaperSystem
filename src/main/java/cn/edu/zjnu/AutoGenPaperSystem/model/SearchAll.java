@@ -4,7 +4,7 @@ package cn.edu.zjnu.AutoGenPaperSystem.model;
  * Created by zseapeng on 2016/9/27.
  */
 public class SearchAll {
-    private int grade_id;
+    private boolean isdelete;
     private int sub_id;
     private int char_id;
     private int types_id;
@@ -14,8 +14,8 @@ public class SearchAll {
     public SearchAll() {
     }
 
-    public SearchAll(int grade_id, int sub_id, int char_id, int types_id, int know_id, int diff_id) {
-        this.grade_id = grade_id;
+    public SearchAll(boolean isdelete, int sub_id, int char_id, int types_id, int know_id, int diff_id) {
+        this.isdelete = isdelete;
         this.sub_id = sub_id;
         this.char_id = char_id;
         this.types_id = types_id;
@@ -31,12 +31,12 @@ public class SearchAll {
         this.diff_id = diff_id;
     }
 
-    public int getGrade_id() {
-        return grade_id;
+    public boolean getIsdelete() {
+        return isdelete;
     }
 
-    public void setGrade_id(int grade_id) {
-        this.grade_id = grade_id;
+    public void setIsdelete(boolean isdelete) {
+        this.isdelete = isdelete;
     }
 
     public int getSub_id() {
