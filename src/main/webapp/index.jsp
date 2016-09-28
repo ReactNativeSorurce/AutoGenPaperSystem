@@ -10,7 +10,9 @@
 <a href="/zseapebg12345">zseapebg12345</a>
 <a href="/yuwen">yuwen</a>
 <a href="/point2">point2</a>
-<a href="/tiku/yuwen/point3">point3</a>
-<a href="/tiku/shuxue/point2/t1n1">选项</a>
+<a href="/tiku/1/yuwen1">语文1</a>
+<a href="/tiku/1/yuwen1/point3">point3</a>
+<a href="/tiku/1/shuxue/point2/t1n1">选项</a>
+<a href="/tiku/1/yuwen1">测试知识点</a>
 </body>
 </html>

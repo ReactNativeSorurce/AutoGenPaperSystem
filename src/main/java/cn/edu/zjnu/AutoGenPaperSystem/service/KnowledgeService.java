@@ -3,6 +3,7 @@ package cn.edu.zjnu.AutoGenPaperSystem.service;
 import cn.edu.zjnu.AutoGenPaperSystem.model.Knowledge;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by zseapeng on 2016/9/22.
@@ -20,5 +21,10 @@ public interface KnowledgeService {
 
     int updateByPrimaryKey(Knowledge record);
 
-    List<Knowledge> selectKnowledgeBySubjectId(Integer subjectId);
+    List<Knowledge> selectKnowledgeBySubjectId(Integer subjectId, int gradeID, String subName);
+
+    Map selectKnowledgeBySubjectIds(int id);
+
+    //Map selectFirstKnowledgeBySubjectId(Integer subjectId);
+    public Map selectFirstKnowledgeBySubjectId(Integer subjectId,int grade_id,String others,String subName);
 }
