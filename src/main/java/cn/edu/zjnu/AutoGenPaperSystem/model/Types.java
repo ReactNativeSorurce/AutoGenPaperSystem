@@ -40,4 +40,13 @@ public class Types {
     public void setSubjectId(Integer subjectId) {
         this.subjectId = subjectId;
     }
+
+    @Override
+    public String toString() {
+        return "Types{" +
+                "typeId=" + typeId +
+                ", typeName='" + typeName + '\'' +
+                ", subjectId=" + subjectId +
+                '}';
+    }
 }
