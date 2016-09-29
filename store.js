@@ -1,12 +1,13 @@
 const state = {
   //课程
-  "subjects": {
+  "gaozhong": {
     "subject1": {
       "code": "",
       context
     }
     ...
   }
+  "chuzhoing"
 
   //知识点
   "knowledgePoints": {

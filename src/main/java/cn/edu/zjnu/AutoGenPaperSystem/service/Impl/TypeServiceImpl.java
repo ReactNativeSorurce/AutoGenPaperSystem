@@ -2,10 +2,12 @@ package cn.edu.zjnu.AutoGenPaperSystem.service.Impl;
 
 import cn.edu.zjnu.AutoGenPaperSystem.dao.TypesMapper;
 import cn.edu.zjnu.AutoGenPaperSystem.model.Types;
+import cn.edu.zjnu.AutoGenPaperSystem.model.TypesJson;
 import cn.edu.zjnu.AutoGenPaperSystem.service.TypeService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,8 +43,20 @@ public class TypeServiceImpl implements TypeService {
         return 0;
     }
 
-    public List<Types> selectTypesBySubjectId(Integer subjectId) {
-        return typesMapper.selectTypesBySubjectId(subjectId);
+    public List selectTypesBySubjectId(Integer subjectId,int gradeId,String subName,String others,String pointId) {
+        List<TypesJson> typesJsonList = new ArrayList<TypesJson>();
+        List<Types> typesList = typesMapper.selectTypesBySubjectId(subjectId);
+        for (Types types:typesList){
+            TypesJson json = new TypesJson();
+            json.setName(types.getTypeName());
+            json.setUrl("/tiku/"+gradeId+"/"+subName+"/point"+pointId+"/"+
+                    types.getTypeId());
+            typesJsonList.add(json);
+        }
+
+
+
+        return typesJsonList;
     }
 
 

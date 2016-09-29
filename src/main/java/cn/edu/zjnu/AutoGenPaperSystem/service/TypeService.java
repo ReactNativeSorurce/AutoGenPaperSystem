@@ -20,5 +20,5 @@ public interface TypeService {
 
     int updateByPrimaryKey(Types record);
 
-    List<Types> selectTypesBySubjectId(Integer subjectId);
+    public List selectTypesBySubjectId(Integer subjectId,int gradeId,String subName,String others,String pointId);
 }

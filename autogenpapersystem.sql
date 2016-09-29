@@ -22,9 +22,9 @@
 DROP TABLE IF EXISTS `character`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `character` (                               //题目特点表
+CREATE TABLE `character` (
   `Charact_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Charact_name` varchar(50) NOT NULL,                   //题目特点名
+  `Charact_name` varchar(50) NOT NULL,
   PRIMARY KEY (`Charact_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -46,11 +46,11 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `difficulty`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `difficulty` (                                /*难度表*/
+CREATE TABLE `difficulty` (
   `Difficulty_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Uplimit` double NOT NULL,                               /*难度上限*/
-  `Lowlimit` double NOT NULL,                              /*难度下限*/
-  `Describe` varchar(10) NOT NULL,                         /*难度描述*/
+  `Uplimit` double NOT NULL,
+  `Lowlimit` double NOT NULL,
+  `Describe` varchar(10) NOT NULL,
   PRIMARY KEY (`Difficulty_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -72,8 +72,8 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `grade`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `grade` (                                        /*年级表*/
-  `Crade_ID` int(11) NOT NULL AUTO_INCREMENT,              
+CREATE TABLE `grade` (
+  `Crade_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Crade_name` varchar(10) NOT NULL,
   PRIMARY KEY (`Crade_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
@@ -96,11 +96,11 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `knowledge`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `knowledge` (                                  /*知识点表*/
+CREATE TABLE `knowledge` (
   `Knowledge_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Knowledge_name` varchar(100) NOT NULL,                   /*知识点名称*/
-  `Subject_ID` int(11) NOT NULL,                           /*知识点对应的课目的ID*/
-  `Superior_ID` int(11) DEFAULT '0',                       /*知识点对应的上级知识点的ID*/
+  `Knowledge_name` varchar(100) NOT NULL,
+  `Subject_ID` int(11) NOT NULL,
+  `Superior_ID` int(11) DEFAULT '0',
   PRIMARY KEY (`Knowledge_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -122,18 +122,18 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `questions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `questions` (                                     /*题目表*/
+CREATE TABLE `questions` (
   `Questions_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Content` varchar(200) NOT NULL,                             /*题目内容*/
-  `Subject_ID` int(11) NOT NULL,                               /*题目对应的学科*/               
-  `Knowledge_ID1` int(11) DEFAULT NULL,                        /*题目对应的一级知识点*/
-  `Knowledge_ID2` int(11) DEFAULT NULL,                        /*题目对应的二级知识点*/
-  `Knowledge_ID3` int(11) DEFAULT NULL,                        /*题目对应的三级知识点*/
-  `Knowledge_ID4` int(11) DEFAULT NULL,                        /*题目对应的四级知识点*/
-  `Type_ID` int(11) NOT NULL,                                  /*题目对应的题型*/
-  `Difficulty_ID` int(11) NOT NULL,                            /*题目对应的难度*/
-  `Charact_ID` int(11) NOT NULL,                               /*题目对应的题目特点*/
-  `Isdelete` tinyint(1) NOT NULL DEFAULT '0',                  /*题目状态*/
+  `Content` varchar(200) NOT NULL,
+  `Subject_ID` int(11) NOT NULL,
+  `Knowledge_ID1` int(11) DEFAULT NULL,
+  `Knowledge_ID2` int(11) DEFAULT NULL,
+  `Knowledge_ID3` int(11) DEFAULT NULL,
+  `Knowledge_ID4` int(11) DEFAULT NULL,
+  `Type_ID` int(11) NOT NULL,
+  `Difficulty_ID` int(11) NOT NULL,
+  `Charact_ID` int(11) NOT NULL,
+  `Isdelete` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`Questions_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -154,10 +154,10 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `subject`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `subject` (                                    /*课目表*/
+CREATE TABLE `subject` (
   `Subject_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Subject_name` varchar(20) NOT NULL,
-  `Grade_ID` int(11) NOT NULL,                             /*课目对应的年级ID*/
+  `Grade_ID` int(11) NOT NULL,
   PRIMARY KEY (`Subject_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -179,10 +179,10 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `type`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `type` (                                    /*题型表*/
+CREATE TABLE `type` (
   `Type_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Type_name` varchar(20) NOT NULL,
-  `Subject_ID` int(11) NOT NULL,                         /*题型对应的科目ID*/
+  `Subject_ID` int(11) NOT NULL,
   PRIMARY KEY (`Type_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

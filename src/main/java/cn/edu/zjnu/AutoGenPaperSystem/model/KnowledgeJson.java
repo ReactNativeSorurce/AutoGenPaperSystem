@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class KnowledgeJson {
     private String name;
-    private List contextList;
+    private List pointList;
     private String url;
 
     public KnowledgeJson() {
@@ -15,7 +15,7 @@ public class KnowledgeJson {
 
     public KnowledgeJson(String name, List contextList, String url) {
         this.name = name;
-        this.contextList = contextList;
+        this.pointList = contextList;
         this.url = url;
     }
 
@@ -27,12 +27,12 @@ public class KnowledgeJson {
         this.name = name;
     }
 
-    public List getContextList() {
-        return contextList;
+    public List getPointList() {
+        return pointList;
     }
 
-    public void setContextList(List contextList) {
-        this.contextList = contextList;
+    public void setPointList(List contextList) {
+        this.pointList = contextList;
     }
 
     public String getUrl() {

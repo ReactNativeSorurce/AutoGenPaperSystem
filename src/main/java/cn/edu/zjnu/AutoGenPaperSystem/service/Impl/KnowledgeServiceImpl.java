@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -69,8 +68,8 @@ public class KnowledgeServiceImpl implements KnowledgeService {
      * @param subName 科目名称
      * @return
      */
-    public Map selectFirstKnowledgeBySubjectId(Integer subjectId, int grade_id, String others,String subName) {
-        Map<String, List> knowledgeMap = new HashMap<String, List>();
+    public List selectFirstKnowledgeBySubjectId(Integer subjectId, int grade_id, String others,String subName) {
+        //Map<String, List> knowledgeMap = new HashMap<String, List>();
         List<Knowledge> knowledgeList = knowledgeMapper.selectFirstKnowledgeBySubjectId(subjectId);
         List<KnowledgeJson> knowledgeJsons = new ArrayList<KnowledgeJson>();
         for (Knowledge knowledge : knowledgeList) {
@@ -87,14 +86,14 @@ public class KnowledgeServiceImpl implements KnowledgeService {
             //            "/"+others);
             //    knowledgeJsonList.add(knowledgeJson2);
             //}
-            knowledgeJson.setContextList(getKnowledgeJson(knowledge.getKnowledgeId(), grade_id, others,subName));
+            knowledgeJson.setPointList(getKnowledgeJson(knowledge.getKnowledgeId(), grade_id, others,subName));
             knowledgeJson.setUrl("/tiku/" + grade_id + "/"+subName+"/point" + knowledge.getKnowledgeId() +
                     "/" + others);
             knowledgeJsons.add(knowledgeJson);
         }
 
-        knowledgeMap.put("knowledge", knowledgeJsons);
-        return knowledgeMap;
+        //knowledgeMap.put("knowledge", knowledgeJsons);
+        return knowledgeJsons;
     }
 
     private List getKnowledgeJson(int knowledgeId, int grade_id, String others,String subName) {
@@ -106,7 +105,7 @@ public class KnowledgeServiceImpl implements KnowledgeService {
             List<KnowledgeJson> k = new ArrayList<KnowledgeJson>();
             k = getKnowledgeJson(knowledge2.getKnowledgeId(), grade_id, others,subName);
             if (k != null) {
-                knowledgeJson2.setContextList(k);
+                knowledgeJson2.setPointList(k);
             }
             knowledgeJson2.setUrl("/tiku/" + grade_id +"/"+subName+"/point" + knowledge2.getKnowledgeId() +
                     "/" + others);
