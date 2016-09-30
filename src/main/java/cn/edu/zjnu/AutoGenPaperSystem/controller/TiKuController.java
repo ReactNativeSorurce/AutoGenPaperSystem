@@ -1,6 +1,7 @@
 package cn.edu.zjnu.AutoGenPaperSystem.controller;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.SearchAll;
+import cn.edu.zjnu.AutoGenPaperSystem.service.Impl.QuestionsServiceImpl;
 import cn.edu.zjnu.AutoGenPaperSystem.service.KnowledgeService;
 import cn.edu.zjnu.AutoGenPaperSystem.service.QuestionsService;
 import cn.edu.zjnu.AutoGenPaperSystem.service.SubjectService;
@@ -35,6 +36,9 @@ public class TiKuController {
     private SubjectService subjectServiceImpl;
     @Resource
     private TypeService typeServiceImpl;
+    @Resource
+    private QuestionsServiceImpl questionsService;
+
     private static SearchAll searchAll = new SearchAll();
     private int sub_id = 0;
     private String point_id = "";
@@ -63,10 +67,13 @@ public class TiKuController {
     }
 
     @RequestMapping(value = "/**/**/point{point_id}", method = RequestMethod.GET)
-    public String getPointId(@PathVariable String point_id) {
+    public Map getPointId(@PathVariable String point_id) {
+        Map<String,Object> questionsMap=new HashMap<String, Object>();
         this.point_id = point_id;
+        searchAll.setKnow_id(Integer.parseInt(point_id));
+        questionsMap=questionsService.selectBySearchAll(searchAll,1);
         System.out.println("point_id---->" + this.point_id);
-        return "1";
+        return questionsMap;
     }
 
     @RequestMapping(value = "/**/**/**/{others}", method = RequestMethod.GET)

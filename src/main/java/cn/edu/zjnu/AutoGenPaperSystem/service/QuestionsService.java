@@ -4,6 +4,7 @@ import cn.edu.zjnu.AutoGenPaperSystem.model.Questions;
 import cn.edu.zjnu.AutoGenPaperSystem.model.SearchAll;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by zseapeng on 2016/9/22.
@@ -21,5 +22,5 @@ public interface QuestionsService {
 
     int updateByPrimaryKey(Questions record);
 
-    List<Questions> selectBySearchAll(SearchAll searchAll);
+    Map selectBySearchAll(SearchAll searchAll,int nowpage);
 }

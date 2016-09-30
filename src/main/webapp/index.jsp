@@ -14,5 +14,6 @@
 <a href="/tiku/1/yuwen1/point3">point3</a>
 <a href="/tiku/1/shuxue/point2/t1n1">选项</a>
 <a href="/tiku/1/yuwen1">测试知识点</a>
+<a href="/tiku/1/yuwen1/point1">测试知识点</a>
 </body>
 </html>
