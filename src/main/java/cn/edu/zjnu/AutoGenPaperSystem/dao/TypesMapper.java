@@ -1,13 +1,10 @@
-package cn.edu.zjnu.AutoGenPaperSystem.service;
+package cn.edu.zjnu.AutoGenPaperSystem.dao;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.Types;
 
 import java.util.List;
 
-/**
- * Created by zseapeng on 2016/9/22.
- */
-public interface TypeService {
+public interface TypesMapper {
     int deleteByPrimaryKey(Integer typeId);
 
     int insert(Types record);
@@ -20,5 +17,5 @@ public interface TypeService {
 
     int updateByPrimaryKey(Types record);
 
-    public List selectTypesBySubjectId(Integer subjectId,int gradeId,String subName,String others,String pointId);
+    List<Types> selectTypesBySubjectId(Integer subjectId);
 }

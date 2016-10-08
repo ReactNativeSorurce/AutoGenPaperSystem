@@ -1,19 +1,19 @@
 package cn.edu.zjnu.AutoGenPaperSystem.model;
 
-public class Type {
+public class Types {
     private Integer typeId;
 
     private String typeName;
 
     private Integer subjectId;
 
-    public Type(Integer typeId, String typeName, Integer subjectId) {
+    public Types(Integer typeId, String typeName, Integer subjectId) {
         this.typeId = typeId;
         this.typeName = typeName;
         this.subjectId = subjectId;
     }
 
-    public Type() {
+    public Types() {
         super();
     }
 
@@ -39,5 +39,14 @@ public class Type {
 
     public void setSubjectId(Integer subjectId) {
         this.subjectId = subjectId;
+    }
+
+    @Override
+    public String toString() {
+        return "Types{" +
+                "typeId=" + typeId +
+                ", typeName='" + typeName + '\'' +
+                ", subjectId=" + subjectId +
+                '}';
     }
 }

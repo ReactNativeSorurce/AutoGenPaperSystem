@@ -1,13 +1,10 @@
-package cn.edu.zjnu.AutoGenPaperSystem.service;
+package cn.edu.zjnu.AutoGenPaperSystem.dao;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.Charaction;
 
 import java.util.List;
 
-/**
- * Created by zseapeng on 2016/9/22.
- */
-public interface CharacterService {
+public interface CharactionMapper {
     int deleteByPrimaryKey(Integer charactId);
 
     int insert(Charaction record);

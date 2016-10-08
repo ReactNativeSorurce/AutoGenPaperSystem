@@ -1,7 +1,10 @@
 package cn.edu.zjnu.AutoGenPaperSystem.dao;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.Questions;
+import cn.edu.zjnu.AutoGenPaperSystem.model.SearchAll;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface QuestionsMapper {
@@ -16,4 +19,6 @@ public interface QuestionsMapper {
     int updateByPrimaryKeySelective(Questions record);
 
     int updateByPrimaryKey(Questions record);
+
+    List<Questions> selectBySearchAll(SearchAll searchAll);
 }

@@ -6,6 +6,7 @@
       <idArg column="Difficulty_ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="Uplimit" jdbcType="DOUBLE" javaType="java.lang.Double" />
       <arg column="Lowlimit" jdbcType="DOUBLE" javaType="java.lang.Double" />
+      <arg column="describe" jdbcType="VARCHAR" javaType="java.lang.String"/>
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
@@ -17,6 +18,13 @@
     from difficulty
     where Difficulty_ID = #{difficultyId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectAllDifficult" resultMap="BaseResultMap">
+    SELECT
+    *
+    FROM difficulty
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from difficulty
     where Difficulty_ID = #{difficultyId,jdbcType=INTEGER}

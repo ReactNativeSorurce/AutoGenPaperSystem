@@ -23,7 +23,16 @@ public class Questions {
 
     private Boolean isdelete;
 
-    public Questions(Integer questionsId, String content, Integer subjectId, Integer knowledgeId1, Integer knowledgeId2, Integer knowledgeId3, Integer knowledgeId4, Integer typeId, Integer difficultyId, Integer charactId, Boolean isdelete) {
+    private String Answer;
+
+
+    public Questions(Integer questionsId, String content, String answer) {
+        this.questionsId = questionsId;
+        this.content = content;
+        Answer = answer;
+    }
+
+    public Questions(Integer questionsId, String content, Integer subjectId, Integer knowledgeId1, Integer knowledgeId2, Integer knowledgeId3, Integer knowledgeId4, Integer typeId, Integer difficultyId, Integer charactId, Boolean isdelete, String answer) {
         this.questionsId = questionsId;
         this.content = content;
         this.subjectId = subjectId;
@@ -35,11 +44,39 @@ public class Questions {
         this.difficultyId = difficultyId;
         this.charactId = charactId;
         this.isdelete = isdelete;
+        Answer = answer;
+    }
+
+    @Override
+    public String toString() {
+        return "Questions{" +
+                "questionsId=" + questionsId +
+                ", content='" + content + '\'' +
+                ", subjectId=" + subjectId +
+                ", knowledgeId1=" + knowledgeId1 +
+                ", knowledgeId2=" + knowledgeId2 +
+                ", knowledgeId3=" + knowledgeId3 +
+                ", knowledgeId4=" + knowledgeId4 +
+                ", typeId=" + typeId +
+                ", difficultyId=" + difficultyId +
+                ", charactId=" + charactId +
+                ", isdelete=" + isdelete +
+                ", Answer='" + Answer + '\'' +
+                '}';
     }
 
     public Questions() {
         super();
     }
+
+    public String getAnswer() {
+        return Answer;
+    }
+
+    public void setAnswer(String answer) {
+        Answer = answer;
+    }
+
 
     public Integer getQuestionsId() {
         return questionsId;

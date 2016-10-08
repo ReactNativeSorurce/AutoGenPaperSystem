@@ -51,4 +51,14 @@ public class Knowledge {
     public void setSuperiorId(Integer superiorId) {
         this.superiorId = superiorId;
     }
+
+    @Override
+    public String toString() {
+        return "Knowledge{" +
+                "knowledgeId=" + knowledgeId +
+                ", knowledgeName='" + knowledgeName + '\'' +
+                ", subjectId=" + subjectId +
+                ", superiorId=" + superiorId +
+                '}';
+    }
 }

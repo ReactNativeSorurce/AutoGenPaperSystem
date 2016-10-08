@@ -3,6 +3,8 @@ package cn.edu.zjnu.AutoGenPaperSystem.dao;
 import cn.edu.zjnu.AutoGenPaperSystem.model.Knowledge;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface KnowledgeMapper {
     int deleteByPrimaryKey(Integer knowledgeId);
@@ -16,4 +18,11 @@ public interface KnowledgeMapper {
     int updateByPrimaryKeySelective(Knowledge record);
 
     int updateByPrimaryKey(Knowledge record);
+
+    List<Knowledge> selectKnowledgeBySubjectId(Integer subjectId);
+
+
+    List<Knowledge> selectFirstKnowledgeBySubjectId(Integer subjectId);
+
+    List<Knowledge> selectSecondKnowledgeByKnowId1(Integer knowId1);
 }

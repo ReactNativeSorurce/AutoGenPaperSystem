@@ -7,10 +7,31 @@ public class Difficulty {
 
     private Double lowlimit;
 
-    public Difficulty(Integer difficultyId, Double uplimit, Double lowlimit) {
+    private String describe;
+
+    public Difficulty(Integer difficultyId, Double uplimit, Double lowlimit, String describe) {
         this.difficultyId = difficultyId;
         this.uplimit = uplimit;
         this.lowlimit = lowlimit;
+        this.describe = describe;
+    }
+
+    @Override
+    public String toString() {
+        return "Difficulty{" +
+                "difficultyId=" + difficultyId +
+                ", uplimit=" + uplimit +
+                ", lowlimit=" + lowlimit +
+                ", describe='" + describe + '\'' +
+                '}';
+    }
+
+    public String getDescribe() {
+        return describe;
+    }
+
+    public void setDescribe(String describe) {
+        this.describe = describe;
     }
 
     public Difficulty() {
@@ -40,4 +61,5 @@ public class Difficulty {
     public void setLowlimit(Double lowlimit) {
         this.lowlimit = lowlimit;
     }
+
 }

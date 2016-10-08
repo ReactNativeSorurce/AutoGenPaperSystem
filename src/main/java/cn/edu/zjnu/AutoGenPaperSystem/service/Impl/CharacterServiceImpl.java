@@ -1,7 +1,10 @@
 package cn.edu.zjnu.AutoGenPaperSystem.service.Impl;
 
+import cn.edu.zjnu.AutoGenPaperSystem.model.Charaction;
 import cn.edu.zjnu.AutoGenPaperSystem.service.CharacterService;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by zseapeng on 2016/9/22.
@@ -12,23 +15,28 @@ public class CharacterServiceImpl implements CharacterService {
         return 0;
     }
 
-    public int insert(Character record) {
+    public int insert(Charaction record) {
         return 0;
     }
 
-    public int insertSelective(Character record) {
+
+    public int insertSelective(Charaction record) {
         return 0;
     }
 
-    public Character selectByPrimaryKey(Integer charactId) {
+    public Charaction selectByPrimaryKey(Integer charactId) {
         return null;
     }
 
-    public int updateByPrimaryKeySelective(Character record) {
+    public int updateByPrimaryKeySelective(Charaction record) {
         return 0;
     }
 
-    public int updateByPrimaryKey(Character record) {
+    public int updateByPrimaryKey(Charaction record) {
         return 0;
+    }
+
+    public List<Charaction> selectAllCharat() {
+        return null;
     }
 }

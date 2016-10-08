@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
+﻿-- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
 -- Host: localhost    Database: AutoGenPaperSystem
 -- ------------------------------------------------------
@@ -100,9 +100,9 @@ CREATE TABLE `knowledge` (
   `Knowledge_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Knowledge_name` varchar(100) NOT NULL,
   `Subject_ID` int(11) NOT NULL,
-  `Superior_ID` int(11) DEFAULT NULL,
+  `Superior_ID` int(11) DEFAULT '0',
   PRIMARY KEY (`Knowledge_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,7 +111,7 @@ CREATE TABLE `knowledge` (
 
 LOCK TABLES `knowledge` WRITE;
 /*!40000 ALTER TABLE `knowledge` DISABLE KEYS */;
-INSERT INTO `knowledge` VALUES (1,'基础知识及语言表达',1,NULL),(2,'常用字的字音',1,1),(3,'扩展语句、压缩语段',1,1),(4,'扩展语句',1,3),(5,'诗歌鉴赏',1,NULL);
+INSERT INTO `knowledge` VALUES (1,'基础知识及语言表达',1,0),(2,'常用字的字音',1,1),(3,'扩展语句、压缩语段',1,1),(4,'扩展语句',1,3),(5,'诗歌鉴赏',1,0),(6,'诗',1,5);
 /*!40000 ALTER TABLE `knowledge` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,7 +159,7 @@ CREATE TABLE `subject` (
   `Subject_name` varchar(20) NOT NULL,
   `Grade_ID` int(11) NOT NULL,
   PRIMARY KEY (`Subject_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -168,7 +168,7 @@ CREATE TABLE `subject` (
 
 LOCK TABLES `subject` WRITE;
 /*!40000 ALTER TABLE `subject` DISABLE KEYS */;
-INSERT INTO `subject` VALUES (1,'语文',1);
+INSERT INTO `subject` VALUES (1,'语文',1),(2,'yy',1);
 /*!40000 ALTER TABLE `subject` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -205,4 +205,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-23 16:02:21
+-- Dump completed on 2016-09-23 18:34:00
