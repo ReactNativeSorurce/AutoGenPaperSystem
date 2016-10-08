@@ -6,15 +6,11 @@ import Grade from '../components/Grade';
 import { getInitialState } from '../actions/actionCreators';
 
 const Navbar = React.createClass({
-    PropTypes: {
-        posts: PropTypes.object.isRequired,
-        dispatch: PropTypes.func.isRequired
-    },
 
-    componentDidMount() {
-        const { dispatch } = this.props;
-        dispatch(getInitialState());
-    },
+    // componentDidMount() {
+    //     const { dispatch } = this.props;
+    //     dispatch(getInitialState());
+    // },
 
     render() {
         const { grades } = this.props;
@@ -30,12 +26,8 @@ const Navbar = React.createClass({
     }
 });
 
-const mapStatetoProps = state => {
-    const { grades } = state || {
-        grades: []
-    };
+const mapStateToProps = state => ({
+    grades: state.grades
+});
 
-    return { grades }
-};
-
-export default connect(mapStatetoProps)(Navbar);
+export default connect(mapStateToProps)(Navbar);

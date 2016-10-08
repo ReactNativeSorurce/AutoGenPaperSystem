@@ -5,7 +5,7 @@ const List = React.createClass({
     render() {
         const { type } = this.props;
         return (
-            <Link to={`${type.url}`}>{type.name}</Link>
+            <Link to={`/view/${type.url}`}>{type.name}</Link>
         )
     }
 

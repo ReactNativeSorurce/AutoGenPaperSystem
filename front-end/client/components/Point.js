@@ -6,18 +6,16 @@ const Point = React.createClass({
         const { point } = this.props;
         const isEmpty = point.details.length === 0;
         return (
-            <ul>
+            <li>
                 {
                     isEmpty
-                        ? <li><Link to={`${point.url}`}>{point.name}</Link></li>
-                        : <li>
-                        <ul>
-                            <Link to={`${point.url}`}>{point.name}</Link>
+                        ? <Link to={`/view/${point.url}`}>{point.name}</Link>
+                        : <ul>
+                            <Link to={`/view/${point.url}`}>{point.name}</Link>
                             {point.details.map((detail, i) => <Point point={detail} key={i} i={i}/>)}
                         </ul>
-                    </li>
                 }
-            </ul>
+            </li>
         )
     }
 });

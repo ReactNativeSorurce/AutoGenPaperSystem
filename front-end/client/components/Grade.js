@@ -2,7 +2,7 @@ import React from 'react';
 
 import Course from './Course'
 
-const Grade = React.createElement({
+const Grade = React.createClass({
     render() {
         const { grade } = this.props;
         return(

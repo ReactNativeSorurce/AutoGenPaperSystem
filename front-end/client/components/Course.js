@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const Course = React.createElement({
+const Course = React.createClass({
     render() {
         const { course } = this.props;
         return(
-                <Link to={`${course.url}`}>{ course.context }</Link>
+                <Link to={`/view/${course.url}`}>{ course.context }</Link>
         )
     }
 })
