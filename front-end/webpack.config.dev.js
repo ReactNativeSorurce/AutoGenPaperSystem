@@ -1,8 +1,8 @@
-var path = require('path');
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
-    devtool: 'source-map',
+    devtools: 'source-map',
     entry: [
         'webpack-hot-middleware/client',
         './client/autogenpapersystem'
@@ -12,24 +12,26 @@ module.exports = {
         filename: 'bundle.js',
         publicPath: '/static/'
     },
+    module: {
+        loaders:[
+            { 
+                test: /\.css$/, 
+                include: path.join(__dirname, 'client'),
+                loader: 'style-loader!css-loader' 
+            },
+            {
+                test: /\.js$/,
+                loaders: ['babel'],
+                include: path.join(__dirname, 'client')
+            },
+        ]
+    },
+    resolve: {
+        extensions: ['', '.js', '.jsx'],
+    },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()
-    ],
-    module: {
-        loaders: [
-            //js
-            {
-                test: /\.js$/,
-                loader: 'babel',
-                include: path.join(__dirname, 'client')
-            },
-            //css
-            {
-                test: /\.css$/,
-                loader: 'style-loader!css-loader',
-                include: path.join(__dirname, 'client')
-            }
-        ]
-    }
+    ]
 };
+

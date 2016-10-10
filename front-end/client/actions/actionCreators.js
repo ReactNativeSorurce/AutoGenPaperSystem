@@ -1,35 +1,53 @@
-const GET_KNOWLEDGE_POINTS = 'GET_KNOWLEDGE_POINTS',
-      GET_QUESTION_TYPE = 'GET_QUESTION_TYPE',
-      GET_DEGREE_OF_DIFFICULTY = 'GET_DEGREE_OF_DIFFICULTY',
-      GET_FEATURES = 'GET_FEATURES',
-      GET_QUESTIONS = 'GET_QUESTIONS';
+export const REQUEST = 'REQUEST';
+export const RECEIVE_INITIAL_STATE = 'RECEIVE_INITIAL_STATE';
+export const RECEIVE_SELECT = 'RECEIVE_SELECT';
+export const RECEIVE_QUESTION = 'RECEIVE_QUESTION';
 
-export default getKnowledgePoints() {
-  return {
-    type: 'GET_KNOWLEDGE_POINTS',
-  }
-}
+export const request = () => ({
+    type: REQUEST
+});
 
-export default getQuestionType() {
-  return {
-    type: 'GET_QUESTION_TYPE'
-  }
-}
+export const recevieInitialState = json => ({
+    type: RECEIVE_INITIAL_STATE,
+    posts: json
+});
 
-export default getDegreeOfDifficulty() {
-  return {
-    type: 'GET_DEGREE_OF_DIFFICULTY'
-  }
-}
+export const recevieSelect = json => ({
+    type: RECEIVE_SELECT,
+    posts: json
+});
 
-export default getGET_Features() {
-  return {
-    type: 'GET_FEATURES'
-  }
-}
+export const recevieQuestion = json => ({
+    type: RECEIVE_QUESTION,
+    posts: json
+});
 
-export default getQuestions() {
-  return {
-    type: 'GET_QUESTIONS'
-  }
-}
+export const getInitialState = () => dispatch => {
+    dispatch(request());
+    return fetch('/getinitialstate')
+        .then( response => response.json())
+        .then( json =>
+            dispatch(recevieInitialState(json))
+        )
+        .catch((err) => console.log("rejected:", err))
+};
+
+export const getSelect = url => dispatch => {
+    dispatch(request());
+    return fetch(`${url}`)
+        .then( response => response.json())
+        .then( json =>
+            dispatch(recevieSelect(json))
+        )
+        .catch((err) => console.log("rejected:", err))
+};
+
+export const getQuestion = url => dispatch => {
+    dispatch(request());
+    return fetch(`${url}/question`)
+        .then( response => response.json())
+        .then( json =>
+            dispatch(recevieQuestion(json))
+        )
+        .catch((err) => console.log("rejected:", err))
+};

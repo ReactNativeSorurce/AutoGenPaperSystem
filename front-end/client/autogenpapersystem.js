@@ -1,22 +1,22 @@
 import React from 'react';
 import { render } from 'react-dom';
-
-//import css
-import css from './styles/style.css';
+import { Provider } from 'react-redux';
+import { Router, Route, browserHistory } from 'react-router';
 
 //import components
-import Main from './components/Main';
-import Navbar from './components/Navbar'
+import Navbar from './container/Navbar';
+import Details from './container/Details';
 
-//import react-router
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import store, { history } from './store';
 
 const router = (
-    <Router history={ browserHistory }>
-        <Route path="/" component={Main}>
-          <IndexRoute component={Navbar} />
-        </Route>
+  <Provider store={ store }>
+    <Router history={ history }>
+      <Route path="/" component={Navbar}>
+        <Route path="/view/:id" component={Details} />
+      </Route>
     </Router>
+  </Provider>
 );
 
 render(router, document.getElementById('root'));
