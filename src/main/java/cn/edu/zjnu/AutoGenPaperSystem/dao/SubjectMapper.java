@@ -1,6 +1,7 @@
 package cn.edu.zjnu.AutoGenPaperSystem.dao;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.Subject;
+import com.github.pagehelper.PageHelper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

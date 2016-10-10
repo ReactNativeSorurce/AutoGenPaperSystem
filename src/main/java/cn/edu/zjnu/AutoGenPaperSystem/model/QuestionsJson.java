@@ -40,4 +40,13 @@ public class QuestionsJson {
     public void setAnswer(String answer) {
         this.answer = answer;
     }
+
+    @Override
+    public String toString() {
+        return "QuestionsJson{" +
+                "id=" + id +
+                ", context='" + context + '\'' +
+                ", answer='" + answer + '\'' +
+                '}';
+    }
 }
