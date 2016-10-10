@@ -52,8 +52,7 @@ public class SubjectServiceImpl implements SubjectService {
         return 0;
     }
 
-    public Map selectAllSubject() {
-        Map<String, List> gradeMap = new HashMap<String, List>();
+    public List selectAllSubject() {
         List<SubJson> subJsonList = new ArrayList<SubJson>();
         List<Grade> gradeList = gradeServiceImpl.selectAllGrade();
         for (Grade grade : gradeList) {
@@ -65,7 +64,7 @@ public class SubjectServiceImpl implements SubjectService {
                 Map<String, String> subMap = new HashMap<String, String>();
                 if (subject.getGradeId() == grade.getGradeId()) {
                     try {
-                        subMap.put("url", "/tiku/"+grade.getGradeId() + PinyinHelper.convertToPinyinString(subject.getSubjectName(), "", PinyinFormat.WITHOUT_TONE) + subject.getSubjectId() +
+                        subMap.put("url", "/tiku/"+grade.getGradeId() + "/"+PinyinHelper.convertToPinyinString(subject.getSubjectName(), "", PinyinFormat.WITHOUT_TONE) + subject.getSubjectId() +
                                 "/point");
                     } catch (PinyinException e) {
                         e.printStackTrace();
@@ -77,8 +76,13 @@ public class SubjectServiceImpl implements SubjectService {
             subJson.setContextList(mapList);
             subJsonList.add(subJson);
         }
-        gradeMap.put("grade", subJsonList);
-        return gradeMap;
+        return subJsonList;
+
+
+
+
+
+
 
         //List<Grade> gradeList = gradeServiceImpl.selectAllGrade();
         //Map<String,Map> BigGradeMap = new HashMap<String, Map>();

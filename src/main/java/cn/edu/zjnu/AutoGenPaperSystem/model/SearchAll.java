@@ -70,4 +70,16 @@ public class SearchAll {
     public void setKnow_id(int know_id) {
         this.know_id = know_id;
     }
+
+    @Override
+    public String toString() {
+        return "SearchAll{" +
+                "isdelete=" + isdelete +
+                ", sub_id=" + sub_id +
+                ", char_id=" + char_id +
+                ", types_id=" + types_id +
+                ", know_id=" + know_id +
+                ", diff_id=" + diff_id +
+                '}';
+    }
 }

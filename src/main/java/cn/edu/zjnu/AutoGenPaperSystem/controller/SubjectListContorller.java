@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import java.util.Map;
+import java.util.List;
 
 /**
  * Created by zseapeng on 2016/9/26.
@@ -21,7 +21,7 @@ public class SubjectListContorller {
     private SubjectService subjectServiceImpl;
 
     @RequestMapping(method = RequestMethod.GET)
-    public Map getSubjectList() {
+    public List getSubjectList() {
         return subjectServiceImpl.selectAllSubject();
     }
 
