@@ -13,10 +13,10 @@ module.exports = {
   },
   module: {
     loaders:[
-          { 
-            test: /\.css$/, 
+          {
+            test: /\.css$/,
             include: path.join(__dirname, 'client'),
-            loader: 'style-loader!css-loader' 
+            loader: 'style-loader!css-loader'
           },
           {
             test: /\.js$/,

@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router';
+import MenuItem from 'material-ui/MenuItem';
 
 const Course = React.createClass({
     render() {
         const { course } = this.props;
         return(
-                <Link to={`/view/${course.url}`}>{ course.context }</Link>
+                <Link style = {{textDecoration: 'none'}} to={`/view/${course.url}`} ><MenuItem primaryText={ course.context } /></Link>
         )
     }
 })
