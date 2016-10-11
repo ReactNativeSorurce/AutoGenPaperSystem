@@ -1,7 +1,10 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import {List, ListItem} from 'material-ui/List';
+import Subheader from 'material-ui/Subheader';
+import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 
-import List from '../components/List';
+import Lest from '../components/Lest';
 import Point from '../components/Point';
 import Question from '../components/Question';
 
@@ -17,7 +20,6 @@ const Details = React.createClass({
     // },
 
     render() {
-        // const { diffs, types, features, questions } = this.props;
         const points = this.props.points || [];
         const diffs = this.props.diffs || [];
         const features = this.props.features || [];
@@ -52,31 +54,39 @@ const Details = React.createClass({
         //     </div>
         //     ;
         // }
-
+        var divStyle = {
+            marginLeft: '20%',
+        }
         return (
             <div>
-                <div>
-                    <p>全部知识点</p>
-                    <ul>
-                    { points.map((point, i) => <Point point={point} key={i} i={i} />)}
-                    </ul>
+                <div style={{float: 'left', width: '20%'}}>
+                    <List>
+                        <Subheader style={{width: '100%'}}>全部知识点</Subheader>
+                        { points.map((point, i) => <Point point={point} key={i} i={i}/>)}
+                    </List>
                 </div>
-               <div>
+                <div style={divStyle}>
+                    <Toolbar style={{padding: '0'}}>
+                        <ToolbarGroup>
+                            <ToolbarTitle text="题型" style={{color: '#FFFFFF',backgroundColor: '#FF1744',padding: '0 16px'}}/>
+                            { types.map((type, i) => <Lest type={type} key={i} />)}
+                        </ToolbarGroup>
+                    </Toolbar>
+                    <Toolbar  style={{padding: '0'}}>
+                        <ToolbarGroup>
+                            <ToolbarTitle text="难度"  style={{color: '#FFFFFF',backgroundColor: '#FF1744',padding: '0 16px'}}/>
+                            { diffs.map((diff, i) => <Lest type={diff} key={i} />)}
+                        </ToolbarGroup>
+                    </Toolbar>
+                    <Toolbar  style={{padding: '0'}}>
+                        <ToolbarGroup>
+                            <ToolbarTitle text="特点"  style={{color: '#FFFFFF',backgroundColor: '#FF1744',padding: '0 16px'}}/>
+                            { features.map((feature, i) => <Lest type={feature} key={i}/>)}
+                        </ToolbarGroup>
+                    </Toolbar>
                     <div>
-                        <span>题型</span>
-                        { types.map((type, i) => <List type={type} key={i} i={i} />)}
+                        { contextLists.map((contextList, i) => <Question contextList={contextList} key={i} />)}
                     </div>
-                    <div>
-                        <span>难度系数</span>
-                        { diffs.map((diff, i) => <List type={diff} key={i} i={i} />)}
-                    </div>
-                    <div>
-                        <span>题目特点</span>
-                        { features.map((feature, i) => <List type={feature} key={i} i={i} />)}
-                    </div>
-                </div>
-                <div>
-                    { contextLists.map((contextList, i) => <Question contextList={contextList} key={i} i={i} />)}
                 </div>
             </div>
       )

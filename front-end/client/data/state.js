@@ -10,15 +10,15 @@ const state = {
             },
             {
                 "context": "数学",
-                "url": "yuwen"
+                "url": "shuxue"
             },
                         {
                 "context": "英语",
-                "url": "yuwen"
+                "url": "yy"
             },
                         {
                 "context": "计算机",
-                "url": "yuwen"
+                "url": "jsj"
             }
             ]
         },
@@ -27,16 +27,16 @@ const state = {
             "courses": [
                         {
                 "context": "语文",
-                "url": "yuwen"
+                "url": "yuwenl"
             },            {
                 "context": "数学",
-                "url": "yuwen"
+                "url": "yuwens"
             },            {
                 "context": "英语",
-                "url": "yuwen"
+                "url": "yuweny"
             },            {
                 "context": "计算机",
-                "url": "yuwen"
+                "url": "yuwenj"
             }
             ]
         }
@@ -44,15 +44,18 @@ const state = {
     "selects": {
         "points": [
         {
+            "level": 0,
             "name": "选择题",
             "url": "xuanze",
             "details": [
             {
+                "level": 1,
                 "name": "单选",
                 "url": "danxuan",
                 "details": []
             },
             {
+                "level": 1,
                 "name": "多选",
                 "url": "duoxuan",
                 "details": []
@@ -60,6 +63,7 @@ const state = {
             ]
         },
         {
+            "level": 0,
             "name": "填空",
             "url": "tiankong",
             "details": []
