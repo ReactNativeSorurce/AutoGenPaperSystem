@@ -15,7 +15,7 @@ const Point = React.createClass({
                 isEmpty
                     ? <ListItem key = { I } nestedLevel={ point.level }>
                         <Link
-                            to={`/view/${point.url}`}
+                            to={`${point.url}`}
                             style = {{textDecoration: 'none', color: '#1E88E5'}}>
                             {point.name}
                         </Link>
@@ -30,7 +30,7 @@ const Point = React.createClass({
                             <Point point={detail} key={i} i={i}/>)}
                     >
                         <Link
-                            to={`/view/${point.url}`}
+                            to={`${point.url}`}
                             style = {{textDecoration: 'none', color: '#1E88E5'}}>
                             {point.name}
                         </Link>

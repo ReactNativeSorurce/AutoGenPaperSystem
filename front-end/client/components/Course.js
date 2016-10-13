@@ -6,7 +6,7 @@ const Course = React.createClass({
     render() {
         const { course } = this.props;
         return(
-                <Link style = {{textDecoration: 'none'}} to={`/view/${course.url}`} ><MenuItem primaryText={ course.context } /></Link>
+                <Link style = {{textDecoration: 'none'}} to={`${course.url}`} ><MenuItem primaryText={ course.context } /></Link>
         )
     }
 })

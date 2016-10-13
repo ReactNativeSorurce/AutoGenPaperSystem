@@ -7,7 +7,7 @@ const Lest = React.createClass({
         return (
             <Link
               style = {{lineHeight: '56px', margin: '0 5px', padding:'0 10px', textDecoration: 'none', color: '#1E88E5'}}
-              to={`/view/${type.url}`}>{type.name}</Link>
+              to={`${type.url}`}>{type.name}</Link>
         )
     }
 });
