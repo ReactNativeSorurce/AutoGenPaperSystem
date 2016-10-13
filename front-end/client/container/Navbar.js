@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -10,12 +10,12 @@ import Grade from '../components/Grade';
 
 import { getInitialState } from '../actions/actionCreators';
 
-const Navbar = React.createClass({
-
-    // componentDidMount() {
-    //     const { dispatch } = this.props;
-    //     dispatch(getInitialState());
-    // },
+class Navbar extends Component{
+    componentWillMount() {
+        const { dispatch } = this.props;
+        alert('haha');
+        dispatch(getInitialState());
+    };
 
     render() {
         const { grades } = this.props;
@@ -40,7 +40,11 @@ const Navbar = React.createClass({
             </MuiThemeProvider>
         )
     }
-});
+};
+
+Navbar.propTypes = {
+  dispatch: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
     grades: state.grades

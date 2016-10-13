@@ -13,11 +13,11 @@ import { getSelect, getQuestion } from '../actions/actionCreators';
 const { pathname } = window.location;
 
 const Details = React.createClass({
-    // componentDidMount() {
-    //     const { dispatch } = this.props;
-    //     dispatch(getSelect(pathname));
-    //     dispatch(getQuestion(pathname));
-    // },
+    componentDidMount() {
+        const { dispatch } = this.props;
+        dispatch(getSelect(pathname));
+        dispatch(getQuestion(pathname));
+    },
 
     render() {
         const points = this.props.points || [];
