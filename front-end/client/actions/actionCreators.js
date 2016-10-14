@@ -24,7 +24,7 @@ export const recevieQuestion = json => ({
 
 export const getInitialState = () => dispatch => {
     dispatch(request());
-    return fetch('/getinitialstate')
+    return fetch('127.0.0.1:8121/AutoGenPaperSystem/subjectlist')
         .then( response => response.json())
         .then( json =>
             dispatch(recevieInitialState(json))
