@@ -13,7 +13,7 @@ import java.util.List;
  * Created by zseapeng on 2016/9/26.
  */
 @Controller
-@RequestMapping(value = "/subjectlist")
+@RequestMapping(value = "/api/subjectlist")
 @ResponseBody
 public class SubjectListContorller {
 
