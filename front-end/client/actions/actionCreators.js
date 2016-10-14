@@ -1,11 +1,11 @@
-export const REQUEST = 'REQUEST';
+// export const REQUEST = 'REQUEST';
 export const RECEIVE_INITIAL_STATE = 'RECEIVE_INITIAL_STATE';
 export const RECEIVE_SELECT = 'RECEIVE_SELECT';
 export const RECEIVE_QUESTION = 'RECEIVE_QUESTION';
 
-export const request = () => ({
-    type: REQUEST
-});
+// export const request = () => ({
+//     type: REQUEST
+// });
 
 export const recevieInitialState = json => ({
     type: RECEIVE_INITIAL_STATE,
@@ -23,17 +23,16 @@ export const recevieQuestion = json => ({
 });
 
 export const getInitialState = () => dispatch => {
-    dispatch(request());
-    return fetch('http://10.15.86.22:8111/AutoGenPaperSystem/api/subjectlist')
+    // dispatch(request());
+    return fetch('http://10.15.102.47:8111/AutoGenPaperSystem/api/subjectlist')
         .then( response => response.json())
-        .then( response =>
-            dispatch(recevieInitialState(response))
+        .then( json =>
+            dispatch(recevieInitialState(json))
         )
-        .catch((err) => console.log("rejected:", err))
 };
 
 export const getSelect = url => dispatch => {
-    dispatch(request());
+    // dispatch(request());
     return fetch(`${url}`)
         .then( response => response.json())
         .then( response =>
@@ -43,7 +42,7 @@ export const getSelect = url => dispatch => {
 };
 
 export const getQuestion = url => dispatch => {
-    dispatch(request());
+    // dispatch(request());
     return fetch(`${url}/question`)
         .then( response => response.json())
         .then( response =>

@@ -95,11 +95,11 @@ const Details = React.createClass({
 
 function mapStateToProps(state) {
     return {
-        points: state.selects.points,
-        types: state.selects.types,
-        diffs: state.selects.diffs,
-        features: state.selects.features,
-        questions: state.questions
+        points: state.selects[0].points,
+        types: state.selects[0].types,
+        diffs: state.selects[0].diffs,
+        features: state.selects[0].features,
+        questions: state.questions[0]
     }
 };
 

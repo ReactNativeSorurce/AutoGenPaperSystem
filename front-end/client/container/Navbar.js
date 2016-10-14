@@ -11,28 +11,31 @@ import Grade from '../components/Grade';
 import { getInitialState } from '../actions/actionCreators';
 
 class Navbar extends Component{
-    componentWillMount() {
+    componentDidMount() {
         const { dispatch } = this.props;
-        alert('haha');
         dispatch(getInitialState());
     };
 
     render() {
         const { grades } = this.props;
+        const isEmpty = grades.length === 0;
         return (
             <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
                 <div>
                     <Toolbar style={{backgroundColor: "#1565C0"}}>
                         <ToolbarGroup>
                             <ToolbarTitle text="题库" style={{color: '#FFFFFF'}}/>
-                                <MenuItem
+                                {isEmpty
+                                    ? <div></div>
+                                    : <MenuItem
                                     style = {{lineHeight: '56px', color: '#FFFFFF'}}
                                     primaryText = '试题库'
                                     menuItems =
-                                    { grades.map((grade, i) =>
+                                    { grades[0].map((grade, i) =>
                                         <Grade grade={grade} key={i} i={i}/>)
                                     }
                                 />
+                                }
                         </ToolbarGroup>
                     </Toolbar>
                     { this.props.children }
@@ -43,7 +46,8 @@ class Navbar extends Component{
 };
 
 Navbar.propTypes = {
-  dispatch: PropTypes.func.isRequired
+  dispatch: PropTypes.func.isRequired,
+  grades: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => ({
