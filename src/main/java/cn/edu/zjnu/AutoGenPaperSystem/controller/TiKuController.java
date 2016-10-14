@@ -44,7 +44,7 @@ public class TiKuController {
 
 
     @RequestMapping(value = "/{grade_id}/{subjectName}/point{point_id}",method = RequestMethod.GET)
-    public String getInfo(@PathVariable int grade_id,
+    public Map getInfo(@PathVariable int grade_id,
                           @PathVariable String subjectName,
                           @PathVariable String point_id) {
         init();
@@ -56,7 +56,7 @@ public class TiKuController {
         System.out.println("subname---->" + this.sub_name);
         allMap.put("Points", knowLedgeList);
         allMap.put("Types", typesList);
-        return "/{others}";
+        return allMap;
     }
 
     @RequestMapping(value = "/{grade_id}/{subjectName}/point{point_id}/{others}", method = RequestMethod.GET)

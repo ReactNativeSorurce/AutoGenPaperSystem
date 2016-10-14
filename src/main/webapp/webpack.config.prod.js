@@ -7,20 +7,20 @@ module.exports = {
     './client/autogenpapersystem'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'WEB-INF', 'jsp'),
     filename: 'bundle.js',
     publicPath: '/static/'
   },
   module: {
     loaders:[
-          { 
-            test: /\.css$/, 
+          {
+            test: /\.css$/,
             include: path.join(__dirname, 'client'),
-            loader: 'style-loader!css-loader' 
+            loader: 'style-loader!css-loader'
           },
           {
             test: /\.js$/,
-            loaders: ['babel'],
+            loaders: ['babel?presets[]=react,presets[]=es2015'],
             include: path.join(__dirname, 'client')
           },
     ]
