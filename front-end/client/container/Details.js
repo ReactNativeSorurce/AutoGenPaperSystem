@@ -56,7 +56,7 @@ const Details = React.createClass({
         // }
         var divStyle = {
             marginLeft: '20%',
-        }
+        };
         return (
             <div>
                 <div style={{float: 'left', width: '20%'}}>

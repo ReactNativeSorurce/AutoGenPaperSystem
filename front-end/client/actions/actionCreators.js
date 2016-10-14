@@ -24,10 +24,10 @@ export const recevieQuestion = json => ({
 
 export const getInitialState = () => dispatch => {
     dispatch(request());
-    return fetch('http://10.15.86.22:8111/AutoGenPaperSystem/subjectlist')
+    return fetch('http://10.15.86.22:8111/AutoGenPaperSystem/api/subjectlist')
         .then( response => response.json())
-        .then( json =>
-            dispatch(recevieInitialState(json))
+        .then( response =>
+            dispatch(recevieInitialState(response))
         )
         .catch((err) => console.log("rejected:", err))
 };
@@ -36,8 +36,8 @@ export const getSelect = url => dispatch => {
     dispatch(request());
     return fetch(`${url}`)
         .then( response => response.json())
-        .then( json =>
-            dispatch(recevieSelect(json))
+        .then( response =>
+            dispatch(recevieSelect(response))
         )
         .catch((err) => console.log("rejected:", err))
 };
@@ -46,8 +46,8 @@ export const getQuestion = url => dispatch => {
     dispatch(request());
     return fetch(`${url}/question`)
         .then( response => response.json())
-        .then( json =>
-            dispatch(recevieQuestion(json))
+        .then( response =>
+            dispatch(recevieQuestion(response))
         )
         .catch((err) => console.log("rejected:", err))
 };

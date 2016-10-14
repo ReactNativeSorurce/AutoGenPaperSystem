@@ -24,7 +24,8 @@ function selects(state = { }, action) {
         case RECEIVE_SELECT:
             return {
                 ...state,
-                selects: action.posts
+                selects: action.posts,
+                isFetching: false
             };
         default:
             return state;
@@ -36,7 +37,8 @@ function grades(state = { }, action) {
         case RECEIVE_INITIAL_STATE:
             return {
                 ...state,
-                grades: action.posts
+                grades: action.posts,
+                isFetching: false
             };
         default:
             return state;
@@ -48,7 +50,8 @@ function questions(state = { }, action) {
         case RECEIVE_QUESTION:
             return {
                 ...state,
-                questions: action.posts
+                questions: action.posts,
+                isFetching: false
             };
         default:
             return state;
