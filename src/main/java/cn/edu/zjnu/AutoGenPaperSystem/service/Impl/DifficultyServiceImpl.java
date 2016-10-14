@@ -1,9 +1,13 @@
 package cn.edu.zjnu.AutoGenPaperSystem.service.Impl;
 
+import cn.edu.zjnu.AutoGenPaperSystem.dao.DifficultyMapper;
 import cn.edu.zjnu.AutoGenPaperSystem.model.Difficulty;
+import cn.edu.zjnu.AutoGenPaperSystem.model.DifficultyJson;
 import cn.edu.zjnu.AutoGenPaperSystem.service.DifficultyService;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,6 +15,9 @@ import java.util.List;
  */
 @Service
 public class DifficultyServiceImpl implements DifficultyService {
+    @Resource
+    private DifficultyMapper difficultyMapper;
+
     public int deleteByPrimaryKey(Integer difficultyId) {
         return 0;
     }
@@ -35,7 +42,17 @@ public class DifficultyServiceImpl implements DifficultyService {
         return 0;
     }
 
-    public List<Difficulty> selectAllDifficult() {
-        return null;
+    @Override
+    public List selectAllDifficult(Integer subjectId, int gradeId, String subName, String others, String pointId) {
+        List<DifficultyJson> difficultyJsons=new ArrayList<DifficultyJson>();
+        List<Difficulty> difficulties=difficultyMapper.selectAllDifficult();
+        for (Difficulty list:difficulties){
+            DifficultyJson difficultyJson=new DifficultyJson();
+            difficultyJson.setName(""+list.getUplimit()+"-"+list.getLowlimit()+"("+list.getDescribe()+")");
+            difficultyJson.setUrl("/tiku/"+gradeId+"/"+subName+"/point"+pointId+"/"+
+                    list.getDifficultyId());
+            difficultyJsons.add(difficultyJson);
+        }
+        return difficultyJsons;
     }
 }

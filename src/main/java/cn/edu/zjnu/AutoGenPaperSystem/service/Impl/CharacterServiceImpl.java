@@ -1,9 +1,13 @@
 package cn.edu.zjnu.AutoGenPaperSystem.service.Impl;
 
+import cn.edu.zjnu.AutoGenPaperSystem.dao.CharactionMapper;
 import cn.edu.zjnu.AutoGenPaperSystem.model.Charaction;
+import cn.edu.zjnu.AutoGenPaperSystem.model.CharactionJson;
 import cn.edu.zjnu.AutoGenPaperSystem.service.CharacterService;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,6 +15,9 @@ import java.util.List;
  */
 @Service
 public class CharacterServiceImpl implements CharacterService {
+    @Resource
+    private CharactionMapper charactionMapper;
+
     public int deleteByPrimaryKey(Integer charactId) {
         return 0;
     }
@@ -36,7 +43,16 @@ public class CharacterServiceImpl implements CharacterService {
         return 0;
     }
 
-    public List<Charaction> selectAllCharat() {
-        return null;
+    public List selectAllCharat(Integer subjectId,int gradeId,String subName,String others,String pointId) {
+        List<CharactionJson> charactionJsonList=new ArrayList<CharactionJson>();
+        List<Charaction> charactionList=charactionMapper.selectAllCharat();
+        for (Charaction list:charactionList){
+            CharactionJson charactionJson=new CharactionJson();
+            charactionJson.setName(list.getCharactName());
+            charactionJson.setUrl("/tiku/"+gradeId+"/"+subName+"/point"+pointId+"/"+
+                    list.getCharactId());
+            charactionJsonList.add(charactionJson);
+        }
+        return charactionJsonList;
     }
 }

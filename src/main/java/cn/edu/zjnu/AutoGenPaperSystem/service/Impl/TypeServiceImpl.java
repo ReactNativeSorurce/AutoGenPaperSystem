@@ -54,8 +54,6 @@ public class TypeServiceImpl implements TypeService {
             typesJsonList.add(json);
         }
 
-
-
         return typesJsonList;
     }
 

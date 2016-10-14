@@ -20,5 +20,5 @@ public interface CharacterService {
 
     int updateByPrimaryKey(Charaction record);
 
-    List<Charaction> selectAllCharat();
+    List selectAllCharat(Integer subjectId,int gradeId,String subName,String others,String pointId);
 }

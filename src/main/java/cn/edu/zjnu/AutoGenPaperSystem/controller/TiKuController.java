@@ -1,10 +1,7 @@
 package cn.edu.zjnu.AutoGenPaperSystem.controller;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.SearchAll;
-import cn.edu.zjnu.AutoGenPaperSystem.service.KnowledgeService;
-import cn.edu.zjnu.AutoGenPaperSystem.service.QuestionsService;
-import cn.edu.zjnu.AutoGenPaperSystem.service.SubjectService;
-import cn.edu.zjnu.AutoGenPaperSystem.service.TypeService;
+import cn.edu.zjnu.AutoGenPaperSystem.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,6 +29,10 @@ public class TiKuController {
     private SubjectService subjectServiceImpl;
     @Resource
     private TypeService typeServiceImpl;
+    @Resource
+    private DifficultyService difficultyServiceImpl;
+    @Resource
+    private CharacterService characterServiceImpl;
 
     private static SearchAll searchAll = new SearchAll();
 
@@ -53,9 +54,13 @@ public class TiKuController {
         List knowLedgeList = knowledgeServiceImpl.selectFirstKnowledgeBySubjectId(this.sub_id,
                 this.grade_id, this.others, this.sub_name);
         List typesList = typeServiceImpl.selectTypesBySubjectId(sub_id, grade_id, sub_name, others, this.point_id);
+        List difficultiesList=difficultyServiceImpl.selectAllDifficult(sub_id, grade_id, sub_name, others, this.point_id);
+        List charactionsList=characterServiceImpl.selectAllCharat(sub_id, grade_id, sub_name, others, this.point_id);
         System.out.println("subname---->" + this.sub_name);
         allMap.put("Points", knowLedgeList);
         allMap.put("Types", typesList);
+        allMap.put("Difficulty",difficultiesList);
+        allMap.put("Charaction",charactionsList);
         return allMap;
     }
 
