@@ -76,6 +76,6 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>cors</filter-name>
-		<url-pattern>/AutoGenPaperSystem/*</url-pattern>
+		<url-pattern>/api/*</url-pattern>
 	</filter-mapping>
 </web-app>
