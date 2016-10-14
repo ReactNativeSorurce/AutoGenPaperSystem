@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
  * 一些实验性内容，并不完善
  */
 @Controller
-@RequestMapping(value = "/tiku")
+@RequestMapping(value = "/api/tiku")
 @ResponseBody
 public class TiKuController {
 
