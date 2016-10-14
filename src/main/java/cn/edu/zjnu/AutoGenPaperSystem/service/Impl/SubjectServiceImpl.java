@@ -28,6 +28,8 @@ public class SubjectServiceImpl implements SubjectService {
     @Resource
     private GradeService gradeServiceImpl;
 
+    private static String localhost = "http://10.15.86.22:8111/AutoGenPaperSystem/api";
+
     public int deleteByPrimaryKey(Integer subjectId) {
         return 0;
     }
