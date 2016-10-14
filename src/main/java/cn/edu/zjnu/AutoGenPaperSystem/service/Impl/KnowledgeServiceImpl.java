@@ -87,7 +87,7 @@ public class KnowledgeServiceImpl implements KnowledgeService {
             //    knowledgeJsonList.add(knowledgeJson2);
             //}
             knowledgeJson.setPointList(getKnowledgeJson(knowledge.getKnowledgeId(), grade_id, others,subName));
-            knowledgeJson.setUrl("/tiku/" + grade_id + "/"+subName+"/point" + knowledge.getKnowledgeId() +
+            knowledgeJson.setUrl("127.0.0.1:/tiku/" + grade_id + "/"+subName+"/point" + knowledge.getKnowledgeId() +
                     "/" + others);
             knowledgeJsons.add(knowledgeJson);
         }
