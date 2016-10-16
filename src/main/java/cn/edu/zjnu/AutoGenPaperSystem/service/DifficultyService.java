@@ -1,7 +1,6 @@
 package cn.edu.zjnu.AutoGenPaperSystem.service;
 
 import cn.edu.zjnu.AutoGenPaperSystem.model.Difficulty;
-import cn.edu.zjnu.AutoGenPaperSystem.model.DifficultyJson;
 
 import java.util.List;
 
@@ -21,5 +20,5 @@ public interface DifficultyService {
 
     int updateByPrimaryKey(Difficulty record);
 
-    List selectAllDifficult(Integer subjectId, int gradeId, String subName, String others, String pointId);
+    List selectAllDifficult(Integer subjectId, int gradeId, String subName, String others, String pointId,String t,String d,String c);
 }

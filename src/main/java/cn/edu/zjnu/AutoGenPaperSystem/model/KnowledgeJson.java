@@ -6,6 +6,7 @@ import java.util.List;
  * Created by zseapeng on 2016/9/28.
  */
 public class KnowledgeJson {
+    private int level;
     private String name;
     private List pointList;
     private String url;
@@ -13,10 +14,19 @@ public class KnowledgeJson {
     public KnowledgeJson() {
     }
 
-    public KnowledgeJson(String name, List contextList, String url) {
+    public KnowledgeJson(int level,String name, List contextList, String url) {
+        this.level = level;
         this.name = name;
         this.pointList = contextList;
         this.url = url;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public String getName() {
@@ -41,5 +51,15 @@ public class KnowledgeJson {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    @Override
+    public String toString() {
+        return "KnowledgeJson{" +
+                "level=" + level +
+                ", name='" + name + '\'' +
+                ", pointList=" + pointList +
+                ", url='" + url + '\'' +
+                '}';
     }
 }

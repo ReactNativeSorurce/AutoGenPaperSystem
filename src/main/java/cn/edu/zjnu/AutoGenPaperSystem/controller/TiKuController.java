@@ -37,30 +37,32 @@ public class TiKuController {
     private static SearchAll searchAll = new SearchAll();
 
 
-    private int sub_id;
-    private String point_id;
-    private int grade_id;
-    private String sub_name;
-    private String others;
+    private int sub_id = 0;
+    private String point_id = "";
+    private int grade_id = 0;
+    private String sub_name = "";
+    private String others = "";
+    private String t = "0";
+    private String d = "0";
+    private String c = "0";
 
-
-    @RequestMapping(value = "/{grade_id}/{subjectName}/point{point_id}",method = RequestMethod.GET)
+    @RequestMapping(value = "/{grade_id}/{subjectName}/point{point_id}", method = RequestMethod.GET)
     public Map getInfo(@PathVariable int grade_id,
-                          @PathVariable String subjectName,
-                          @PathVariable String point_id) {
-        init();
+                       @PathVariable String subjectName,
+                       @PathVariable String point_id) {
+
         Map<String, List> allMap = new HashMap<String, List>();
-        setParam(subjectName,grade_id,point_id);
+        setParam(subjectName, grade_id, point_id);
         List knowLedgeList = knowledgeServiceImpl.selectFirstKnowledgeBySubjectId(this.sub_id,
                 this.grade_id, this.others, this.sub_name);
-        List typesList = typeServiceImpl.selectTypesBySubjectId(sub_id, grade_id, sub_name, others, this.point_id);
-        List difficultiesList=difficultyServiceImpl.selectAllDifficult(sub_id, grade_id, sub_name, others, this.point_id);
-        List charactionsList=characterServiceImpl.selectAllCharat(sub_id, grade_id, sub_name, others, this.point_id);
+        List typesList = typeServiceImpl.selectTypesBySubjectId(sub_id, grade_id, sub_name, others, this.point_id, this.t, this.d, this.c);
+        List difficultiesList = difficultyServiceImpl.selectAllDifficult(sub_id, grade_id, sub_name, others, this.point_id, this.t, this.d, this.c);
+        List charactionsList = characterServiceImpl.selectAllCharat(sub_id, grade_id, sub_name, others, this.point_id, this.t, this.d, this.c);
         System.out.println("subname---->" + this.sub_name);
         allMap.put("Points", knowLedgeList);
         allMap.put("Types", typesList);
-        allMap.put("Difficulty",difficultiesList);
-        allMap.put("Charaction",charactionsList);
+        allMap.put("Difficulty", difficultiesList);
+        allMap.put("Charaction", charactionsList);
         return allMap;
     }
 
@@ -69,10 +71,19 @@ public class TiKuController {
                          @PathVariable int grade_id,
                          @PathVariable String subjectName,
                          @PathVariable String point_id) {
-        init();
-        setParam(subjectName,grade_id,point_id);
+        setParam(subjectName, grade_id, point_id);
         System.out.println("subnameEnd---->" + this.sub_name);
         this.others = others;
+        String reg = "t(\\d+)d(\\d+)c(\\d+)";
+        Pattern pattern = Pattern.compile(reg);
+        Matcher matcher = pattern.matcher(others);
+        System.out.println("count---->" + matcher.groupCount());
+        if (matcher.find()) {
+            System.out.println("t-->" + matcher.group(1));
+            t = matcher.group(1);
+            d = matcher.group(2);
+            c = matcher.group(3);
+        }
         System.out.println("other---->" + this.others);
         return null;
     }
@@ -84,7 +95,7 @@ public class TiKuController {
                                @RequestParam int page) {
 
         System.out.println("page--->" + page);
-        setParam(subjectName,grade_id,point_id);
+        setParam(subjectName, grade_id, point_id);
         System.out.println("point--->" + this.point_id);
         System.out.println("Integer.valueOf(this.point_id)--->" + Integer.valueOf(this.point_id));
         searchAll.setSub_id(this.sub_id);
@@ -101,7 +112,7 @@ public class TiKuController {
                                @PathVariable String others,
                                @RequestParam int page) {
 
-        setParam(subjectName,grade_id,point_id);
+        setParam(subjectName, grade_id, point_id);
         this.others = others;
         searchAll.setSub_id(this.sub_id);
         searchAll.setKnow_id(Integer.valueOf(this.point_id));
@@ -109,9 +120,9 @@ public class TiKuController {
         String reg = "t(\\d+)d(\\d+)c(\\d+)";
         Pattern pattern = Pattern.compile(reg);
         Matcher matcher = pattern.matcher(others);
-        System.out.println("count---->"+matcher.groupCount());
-        if (matcher.find()){
-            System.out.println("t-->"+matcher.group(1));
+        System.out.println("count---->" + matcher.groupCount());
+        if (matcher.find()) {
+            System.out.println("t-->" + matcher.group(1));
             searchAll.setTypes_id(Integer.parseInt(matcher.group(1)));
             searchAll.setDiff_id(Integer.parseInt(matcher.group(2)));
             searchAll.setChar_id(Integer.parseInt(matcher.group(3)));
@@ -127,9 +138,12 @@ public class TiKuController {
         grade_id = 0;
         sub_name = "";
         others = "";
+        t = "0";
+        d = "0";
+        c = "0";
     }
 
-    private void setParam(String subjectName,int grade_id,String point_id) {
+    private void setParam(String subjectName, int grade_id, String point_id) {
         this.sub_name = subjectName;
         this.grade_id = grade_id;
         this.point_id = point_id;

@@ -73,7 +73,9 @@ public class KnowledgeServiceImpl implements KnowledgeService {
         List<Knowledge> knowledgeList = knowledgeMapper.selectFirstKnowledgeBySubjectId(subjectId);
         List<KnowledgeJson> knowledgeJsons = new ArrayList<KnowledgeJson>();
         for (Knowledge knowledge : knowledgeList) {
+            int level = 0;
             KnowledgeJson knowledgeJson = new KnowledgeJson();
+            knowledgeJson.setLevel(level);
             knowledgeJson.setName(knowledge.getKnowledgeName());
             //List<Knowledge> knowledgeList2 = knowledgeMapper.selectSecondKnowledgeByKnowId1(knowledge.getKnowledgeId());
             //List<KnowledgeJson> knowledgeJsonList = new ArrayList<KnowledgeJson>();
@@ -87,7 +89,7 @@ public class KnowledgeServiceImpl implements KnowledgeService {
             //    knowledgeJsonList.add(knowledgeJson2);
             //}
             knowledgeJson.setPointList(getKnowledgeJson(knowledge.getKnowledgeId(), grade_id, others,subName));
-            knowledgeJson.setUrl("127.0.0.1:/tiku/" + grade_id + "/"+subName+"/point" + knowledge.getKnowledgeId() +
+            knowledgeJson.setUrl("/tiku/" + grade_id + "/"+subName+"/point" + knowledge.getKnowledgeId() +
                     "/" + others);
             knowledgeJsons.add(knowledgeJson);
         }
