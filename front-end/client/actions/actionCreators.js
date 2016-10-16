@@ -35,18 +35,16 @@ export const getSelect = url => dispatch => {
     // dispatch(request());
     return fetch(`http://localhost:8111/AutoGenPaperSystem/api/${url}`)
         .then( response => response.json())
-        .then( response =>
-            dispatch(recevieSelect(response))
+        .then( json =>
+            dispatch(recevieSelect(json))
         )
-        .catch((err) => console.log("rejected:", err))
 };
 
 export const getQuestion = url => dispatch => {
     // dispatch(request());
     return fetch(`http://localhost:8111/AutoGenPaperSystem/api/${url}/question`)
         .then( response => response.json())
-        .then( response =>
-            dispatch(recevieQuestion(response))
+        .then( json =>
+            dispatch(recevieQuestion(json))
         )
-        .catch((err) => console.log("rejected:", err))
 };
