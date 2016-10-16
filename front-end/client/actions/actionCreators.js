@@ -33,7 +33,7 @@ export const getInitialState = () => dispatch => {
 
 export const getSelect = url => dispatch => {
     // dispatch(request());
-    return fetch(`${url}`)
+    return fetch(`http://localhost:8111/AutoGenPaperSystem/api/${url}`)
         .then( response => response.json())
         .then( response =>
             dispatch(recevieSelect(response))
@@ -43,7 +43,7 @@ export const getSelect = url => dispatch => {
 
 export const getQuestion = url => dispatch => {
     // dispatch(request());
-    return fetch(`${url}/question`)
+    return fetch(`http://localhost:8111/AutoGenPaperSystem/api/${url}/question`)
         .then( response => response.json())
         .then( response =>
             dispatch(recevieQuestion(response))
