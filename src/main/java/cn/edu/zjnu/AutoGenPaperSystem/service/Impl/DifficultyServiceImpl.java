@@ -42,7 +42,7 @@ public class DifficultyServiceImpl implements DifficultyService {
         return 0;
     }
 
-    @Override
+
     public List selectAllDifficult(Integer subjectId, int gradeId, String subName, String others, String pointId,String t,String d,String c) {
         List<DifficultyJson> difficultyJsons=new ArrayList<DifficultyJson>();
         List<Difficulty> difficulties=difficultyMapper.selectAllDifficult();
