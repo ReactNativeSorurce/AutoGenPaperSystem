@@ -42,7 +42,7 @@ export const getSelect = url => dispatch => {
 
 export const getQuestion = url => dispatch => {
     // dispatch(request());
-    return fetch(`http://localhost:8111/AutoGenPaperSystem/api/${url}/question`)
+    return fetch(`http://localhost:8111/AutoGenPaperSystem/api/${url}/question?page=1`)
         .then( response => response.json())
         .then( json =>
             dispatch(recevieQuestion(json))
